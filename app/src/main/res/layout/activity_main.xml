@@ -11,5 +11,15 @@
         android:layout_height="wrap_content"
         android:id="@+id/lista_jugadores"
         android:hint="@string/pista_jugadores"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/boton_add"/>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/jugadores_aptos">
+
+     </ListView>
 
 </RelativeLayout>

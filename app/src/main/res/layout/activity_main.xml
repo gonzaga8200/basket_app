@@ -22,5 +22,10 @@
         android:id="@+id/jugadores_aptos">
 
      </ListView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/boton_enviar"
+        android:text="@string/texto_boton_enviar"/>
 
 </LinearLayout>

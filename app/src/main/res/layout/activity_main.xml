@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/miLinear">
 
 
     <EditText
@@ -13,7 +14,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/boton_add"/>
+        android:id="@+id/boton_add"
+        android:text="@string/texto_boton"/>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

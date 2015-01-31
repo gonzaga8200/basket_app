@@ -7,5 +7,6 @@
     <string name="pista_jugadores">Introduce un jugador</string>
     <string name="texto_boton">Añadir</string>
     <string name="texto_boton_enviar">Enviar</string>
+    <string name="title_activity_game">GameActivity</string>
 
 </resources>

@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener, Parcelable{
+public class MainActivity extends ActionBarActivity implements View.OnClickListener{
 
     EditText playerList;
     ListView upPlayers;
@@ -92,20 +92,18 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(myLinear.getWindowToken(), 0);
+                break;
             case R.id.boton_enviar:
+                String[] selItemArray = new String[supplierNames1.size()];
+                selItemArray = supplierNames1.toArray(selItemArray);
+                Intent i = new Intent(getBaseContext(),GameActivity.class);
+                i.putExtra("player_list",selItemArray);
+                startActivity(i);
                 
             default:break;
 
         }
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-
-    }
 }

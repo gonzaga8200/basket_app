@@ -5,23 +5,34 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 
 public class GameActivity extends ActionBarActivity {
     String[] players;
     ListView listMatch;
-    TextView textTest;
+    TableLayout dataTable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        textTest = (TextView) findViewById(R.id.textoPrueba);
+        dataTable = (TableLayout) findViewById(R.id.tablaDatos);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null){
             players = extras.getStringArray("player_list");
-            textTest.setText(players[0]);
+            for (int i=0; i < players.length; i++){
+                TableRow row = new TableRow(this);
+                TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+                row.setLayoutParams(lp);
+                TextView myPlayer = new TextView(this);
+                myPlayer.setText(players[i]);
+                row.addView(myPlayer);
+                dataTable.addView(row,i);
+            }
+
 
 
 

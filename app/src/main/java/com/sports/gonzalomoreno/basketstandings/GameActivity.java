@@ -1,9 +1,11 @@
 package com.sports.gonzalomoreno.basketstandings;
 
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -27,9 +29,12 @@ public class GameActivity extends ActionBarActivity {
                 TableRow row = new TableRow(this);
                 TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
                 row.setLayoutParams(lp);
+
                 TextView myPlayer = new TextView(this);
+                myPlayer.setTextColor(Color.parseColor("#D8D8D8"));
                 myPlayer.setText(players[i]);
                 row.addView(myPlayer);
+
                 dataTable.addView(row,i);
             }
 

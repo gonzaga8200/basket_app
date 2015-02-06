@@ -19,7 +19,7 @@ public class GameActivity extends ActionBarActivity {
     String[] players;
     ListView listMatch;
     TableLayout dataTable;
-    //int [][] standingsBoard;
+    public static int [][] standingsBoard ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,12 +29,9 @@ public class GameActivity extends ActionBarActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null){
             players = extras.getStringArray("player_list");
-            /*standingsBoard = new int [10][players.length];
-            for (int i=0; i < 10; i++)
-                for (int j=0; j < players.length; i++)
-                    standingsBoard[i][j] = 0;*/
+            standingsBoard = new int[10][players.length];
             for (int i=0; i < players.length; i++){
-                //final int playerNumber = i;
+                final int playerNumber = i;
 
                 TableRow row = new TableRow(this);
                 TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
@@ -51,9 +48,9 @@ public class GameActivity extends ActionBarActivity {
                 twoPointsScore.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //standingsBoard[0][playerNumber] += 2;
-                        myPlayer.setText("pocoyo");
-                        //twoPointsScore.setText(standingsBoard[0][playerNumber]);
+                        standingsBoard[0][playerNumber] += 2;
+                        String points= Integer.toString(standingsBoard[0][playerNumber]);
+                        twoPointsScore.setText( points);
                     }
                 });
                 //playerInfo.add(new Button(this));

@@ -43,7 +43,7 @@ public class GameActivity extends ActionBarActivity {
 
                 final Button twoPointsScore = new Button(this);
                 twoPointsScore.setId(i);
-                twoPointsScore.setText("Pulsa aquí");
+                twoPointsScore.setText(Integer.toString(0));
                 twoPointsScore.setBackgroundColor(Color.parseColor("#FF5610"));
                 twoPointsScore.setOnClickListener(new View.OnClickListener() {
                     @Override

@@ -9,5 +9,6 @@
     <string name="texto_boton_enviar">Enviar</string>
     <string name="title_activity_game">GameActivity</string>
     <color name="bck_players">#2E2EFE</color>
+    <color name="bck_players2">#FF00FE</color>
 
 </resources>

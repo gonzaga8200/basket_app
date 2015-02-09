@@ -29,7 +29,7 @@ public class GameActivity extends ActionBarActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null){
             players = extras.getStringArray("player_list");
-            standingsBoard = new int[10][players.length];
+            standingsBoard = new int[11][players.length];
             for (int i=0; i < players.length; i++){
                 final int playerNumber = i;
 
@@ -41,22 +41,43 @@ public class GameActivity extends ActionBarActivity {
                 myPlayer.setTextColor(Color.parseColor("#D8D8D8"));
                 myPlayer.setText(players[i]);
 
+                final Button percentagePoints = new Button(this);
+                percentagePoints.setId(i);
+                percentagePoints.setText("0/0");
+
                 final Button twoPointsScore = new Button(this);
                 twoPointsScore.setId(i);
-                twoPointsScore.setText(Integer.toString(0));
+                twoPointsScore.setText("V");
                 twoPointsScore.setBackgroundColor(Color.parseColor("#FF5610"));
                 twoPointsScore.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        standingsBoard[0][playerNumber] += 2;
-                        String points= Integer.toString(standingsBoard[0][playerNumber]);
-                        twoPointsScore.setText( points);
+                        standingsBoard[0][playerNumber] += 1;
+                        String totalThrows = Integer.toString(standingsBoard[0][playerNumber] + standingsBoard[1][playerNumber]);
+                        String totalScore =  Integer.toString(standingsBoard[0][playerNumber]);
+                        percentagePoints.setText(totalScore + '/' + totalThrows);
                     }
                 });
-                //playerInfo.add(new Button(this));
+
+                final Button twoPointsFailed = new Button(this);
+                twoPointsFailed.setId(i);
+                twoPointsFailed.setText("X");
+                twoPointsFailed.setBackgroundColor(Color.parseColor("#FF5610"));
+                twoPointsFailed.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        standingsBoard[1][playerNumber] += 1;
+                        String totalThrows = Integer.toString(standingsBoard[0][playerNumber] + standingsBoard[1][playerNumber]);
+                        String totalScore =  Integer.toString(standingsBoard[0][playerNumber]);
+                        percentagePoints.setText(totalScore + '/' + totalThrows);
+                    }
+                });
+
 
                 row.addView(myPlayer);
                 row.addView(twoPointsScore);
+                row.addView(twoPointsFailed);
+                row.addView(percentagePoints);
 
 
 

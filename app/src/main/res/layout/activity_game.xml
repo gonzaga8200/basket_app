@@ -2,8 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:screenOrientation="portrait"
+    android:configChanges="orientation|keyboardHidden"
     tools:context="com.sports.gonzalomoreno.basketstandings.GameActivity"
-    android:background="@drawable/bck_court">
+    android:background="@color/background_material_dark">
 
 
     <TableLayout

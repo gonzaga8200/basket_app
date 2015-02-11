@@ -41,9 +41,21 @@ public class GameActivity extends ActionBarActivity {
                 myPlayer.setTextColor(Color.parseColor("#D8D8D8"));
                 myPlayer.setText(players[i]);
 
+                TableLayout info2points = new TableLayout(this);
+
+                TableRow rowTitle = new TableRow(this);
+                TableRow.LayoutParams lpTitle = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+                lpTitle.span = 2;
+                rowTitle.setLayoutParams(lpTitle);
+
+                TableRow checks2points = new TableRow(this);
+                TableRow.LayoutParams lpCheck = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+                checks2points.setLayoutParams(lpCheck);
+
                 final Button percentagePoints = new Button(this);
                 percentagePoints.setId(i);
                 percentagePoints.setText("0/0");
+                rowTitle.addView(percentagePoints);
 
                 final Button twoPointsScore = new Button(this);
                 twoPointsScore.setId(i);
@@ -73,11 +85,15 @@ public class GameActivity extends ActionBarActivity {
                     }
                 });
 
+                checks2points.addView(twoPointsScore);
+                checks2points.addView(twoPointsFailed);
+
+                info2points.addView(rowTitle);
+                info2points.addView(checks2points);
 
                 row.addView(myPlayer);
-                row.addView(twoPointsScore);
-                row.addView(twoPointsFailed);
-                row.addView(percentagePoints);
+                row.addView(info2points);
+
 
 
 

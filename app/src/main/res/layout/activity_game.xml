@@ -7,16 +7,34 @@
     tools:context="com.sports.gonzalomoreno.basketstandings.GameActivity"
     android:background="@color/background_material_dark">
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cabecera_players"
+        android:textColor="@color/white"/>
     <TableLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/tablaDatos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:shrinkColumns="*"
         android:stretchColumns="*">
 
     </TableLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cabecera_standings"
+        android:textColor="@color/white"/>
 
+    <TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tablaDatos2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
+
+    </TableLayout>
 </LinearLayout>

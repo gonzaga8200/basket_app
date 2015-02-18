@@ -3,7 +3,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:id="@+id/miLinear">
+    android:id="@+id/miLinear"
+    android:background="@drawable/gradient">
 
 
     <EditText

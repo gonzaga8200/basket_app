@@ -85,6 +85,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             case R.id.boton_add:
                 if (!playerList.getText().toString().isEmpty()){
                     supplierNames1.add(playerList.getText().toString());
+                    playerList.setText("");
                 }
                 else{
                     Toast.makeText(getApplicationContext(), " El nombre del jugador no puede estar en blanco ", Toast.LENGTH_LONG).show();

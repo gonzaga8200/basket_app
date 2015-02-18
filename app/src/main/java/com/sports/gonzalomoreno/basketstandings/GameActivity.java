@@ -61,27 +61,26 @@ public class GameActivity extends ActionBarActivity {
 
 
                 final Button twoPointsScore = new Button(this);
-
-                twoPointsScore.setTextColor(Color.parseColor("#FFFFFF"));
-                twoPointsScore.setShadowLayer(5,0,0,Color.parseColor("#A8A8A8"));
-                twoPointsScore.setBackgroundColor(Color.GREEN);
+                twoPointsScore.setBackgroundResource(R.drawable.scored);
+                twoPointsScore.setTextColor(Color.WHITE);
+                twoPointsScore.setId(i);
+                twoPointsScore.setText("2p V");
 
                 final Button onePointsScore = new Button(this);
-
-                onePointsScore.setTextColor(Color.parseColor("#FFFFFF"));
-                onePointsScore.setShadowLayer(5,0,0,Color.parseColor("#A8A8A8"));
-                onePointsScore.setBackgroundColor(Color.GREEN);
+                onePointsScore.setBackgroundResource(R.drawable.scored);
+                onePointsScore.setTextColor(Color.WHITE);
+                onePointsScore.setId(i);
+                onePointsScore.setText("1p V");
 
                 final Button threePointsScore = new Button(this);
-
-                threePointsScore.setTextColor(Color.parseColor("#FFFFFF"));
-                threePointsScore.setShadowLayer(5,0,0,Color.parseColor("#A8A8A8"));
-                threePointsScore.setBackgroundColor(Color.GREEN);
+                threePointsScore.setBackgroundResource(R.drawable.scored);
+                threePointsScore.setTextColor(Color.WHITE);
+                threePointsScore.setId(i);
+                threePointsScore.setText("3p V");
 
                 /** TWO POINTS SCORE **/
 
-                twoPointsScore.setId(i);
-                twoPointsScore.setText("2p V");
+
                 twoPointsScore.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -94,8 +93,7 @@ public class GameActivity extends ActionBarActivity {
 
                 /** ONE POINTS SCORE **/
 
-                onePointsScore.setId(i);
-                onePointsScore.setText("1p V");
+
                 onePointsScore.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -108,8 +106,7 @@ public class GameActivity extends ActionBarActivity {
 
                 /** THREE POINTS SCORE **/
 
-                threePointsScore.setId(i);
-                threePointsScore.setText("3p V");
+
                 threePointsScore.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -127,7 +124,7 @@ public class GameActivity extends ActionBarActivity {
                 final Button twoPointsFailed = new Button(this);
                 twoPointsFailed.setId(i);
                 twoPointsFailed.setText("2p X");
-                twoPointsFailed.setBackgroundColor(Color.parseColor("#FF5610"));
+                twoPointsFailed.setBackgroundResource(R.drawable.failed);
                 twoPointsFailed.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -143,7 +140,7 @@ public class GameActivity extends ActionBarActivity {
                 final Button onePointsFailed = new Button(this);
                 onePointsFailed.setId(i);
                 onePointsFailed.setText("1p X");
-                onePointsFailed.setBackgroundColor(Color.parseColor("#FF5610"));
+                onePointsFailed.setBackgroundResource(R.drawable.failed);
                 onePointsFailed.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -159,7 +156,7 @@ public class GameActivity extends ActionBarActivity {
                 final Button threePointsFailed = new Button(this);
                 threePointsFailed.setId(i);
                 threePointsFailed.setText("3p X");
-                threePointsFailed.setBackgroundColor(Color.parseColor("#FF5610"));
+                threePointsFailed.setBackgroundResource(R.drawable.failed);
                 threePointsFailed.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

@@ -5,13 +5,15 @@
     android:screenOrientation="portrait"
     android:configChanges="orientation|keyboardHidden"
     tools:context="com.sports.gonzalomoreno.basketstandings.GameActivity"
-    android:background="@color/background_material_dark">
+    android:background="@drawable/gradient">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/cabecera_players"
-        android:textColor="@color/white"/>
+        android:textColor="@color/color_title"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:textSize="15dp"/>
     <TableLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/tablaDatos"
@@ -26,7 +28,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/cabecera_standings"
-        android:textColor="@color/white"/>
+        android:textColor="@color/color_title"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:textSize="15dp"/>
 
     <TableLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

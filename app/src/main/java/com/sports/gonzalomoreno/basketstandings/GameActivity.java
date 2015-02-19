@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -40,11 +42,11 @@ public class GameActivity extends ActionBarActivity {
                 rowStandings.setLayoutParams(lpStandings);
 
                 final TextView myPlayer = new TextView(this);
-                myPlayer.setTextColor(Color.parseColor("#D8D8D8"));
+                myPlayer.setTextColor(Color.parseColor("#2E2E2E"));
                 myPlayer.setText(players[i]);
 
                 TextView myPlayerStanding = new TextView(this);
-                myPlayerStanding.setTextColor(Color.parseColor("#D8D8D8"));
+                myPlayerStanding.setTextColor(Color.parseColor("#2E2E2E"));
                 myPlayerStanding.setText(players[i]);
 
                 final Button percentage2Points = new Button(this);
@@ -64,17 +66,20 @@ public class GameActivity extends ActionBarActivity {
                 twoPointsScore.setBackgroundResource(R.drawable.scored);
                 twoPointsScore.setTextColor(Color.WHITE);
                 twoPointsScore.setId(i);
+                twoPointsScore.setTextSize(8);
                 twoPointsScore.setText("2p V");
 
                 final Button onePointsScore = new Button(this);
                 onePointsScore.setBackgroundResource(R.drawable.scored);
                 onePointsScore.setTextColor(Color.WHITE);
                 onePointsScore.setId(i);
+                onePointsScore.setTextSize(8);
                 onePointsScore.setText("1p V");
 
                 final Button threePointsScore = new Button(this);
                 threePointsScore.setBackgroundResource(R.drawable.scored);
                 threePointsScore.setTextColor(Color.WHITE);
+                threePointsScore.setTextSize(8);
                 threePointsScore.setId(i);
                 threePointsScore.setText("3p V");
 
@@ -123,6 +128,7 @@ public class GameActivity extends ActionBarActivity {
 
                 final Button twoPointsFailed = new Button(this);
                 twoPointsFailed.setId(i);
+                twoPointsFailed.setTextSize(8);
                 twoPointsFailed.setText("2p X");
                 twoPointsFailed.setBackgroundResource(R.drawable.failed);
                 twoPointsFailed.setOnClickListener(new View.OnClickListener() {
@@ -139,6 +145,7 @@ public class GameActivity extends ActionBarActivity {
 
                 final Button onePointsFailed = new Button(this);
                 onePointsFailed.setId(i);
+                onePointsFailed.setTextSize(8);
                 onePointsFailed.setText("1p X");
                 onePointsFailed.setBackgroundResource(R.drawable.failed);
                 onePointsFailed.setOnClickListener(new View.OnClickListener() {
@@ -155,6 +162,7 @@ public class GameActivity extends ActionBarActivity {
 
                 final Button threePointsFailed = new Button(this);
                 threePointsFailed.setId(i);
+                threePointsFailed.setTextSize(8);
                 threePointsFailed.setText("3p X");
                 threePointsFailed.setBackgroundResource(R.drawable.failed);
                 threePointsFailed.setOnClickListener(new View.OnClickListener() {

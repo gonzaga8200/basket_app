@@ -8,6 +8,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,6 +34,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     Button buttonAddPlayer, buttonSend;
     LinearLayout myLinear;
     List<String> supplierNames1 = new ArrayList<String>();
+    String startingLineup[] = new String[5];
 
 
 
@@ -53,13 +55,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
                                     long arg3) {
-
-                //Toast.makeText(TestPreprationActivity.this, "" + upPlayers.getItemAtPosition(arg2),Toast.LENGTH_SHORT).show();
+                   //Toast.makeText(TestPreprationActivity.this, "" + upPlayers.getItemAtPosition(arg2),Toast.LENGTH_SHORT).show();
                 Toast.makeText(getApplicationContext(), R.string.mensaje_jugador_introducido, Toast.LENGTH_LONG).show();
 
             }
 
         });
+        upPlayers.getCheckedItemIds();
         buttonSend = (Button) findViewById(R.id.boton_enviar);
 
 
@@ -102,18 +104,36 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     playerList.setText("");
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), " El nombre del jugador no puede estar en blanco ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),R.string.error_jugador_blanco, Toast.LENGTH_LONG).show();
                 }
 
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(myLinear.getWindowToken(), 0);
                 break;
             case R.id.boton_enviar:
-                String[] selItemArray = new String[supplierNames1.size()];
-                selItemArray = supplierNames1.toArray(selItemArray);
-                Intent i = new Intent(getBaseContext(),GameActivity.class);
-                i.putExtra("player_list",selItemArray);
-                startActivity(i);
+                SparseBooleanArray checked = upPlayers.getCheckedItemPositions();
+
+                if (upPlayers.getCheckedItemCount()!=5){
+                    Toast.makeText(getApplicationContext(),"Debes de seleccionar 5 jugadores para el quinteto inicial", Toast.LENGTH_LONG).show();
+                }
+                else{
+
+                    String[] selItemArray = new String[supplierNames1.size()];
+                    selItemArray = supplierNames1.toArray(selItemArray);
+                    Intent i = new Intent(getBaseContext(),GameActivity.class);
+                    i.putExtra("player_list",selItemArray);
+                    int j=0;
+                    for (int k = 0; k < checked.size(); k++) {
+                        if (checked.get(k)) {
+                            startingLineup[j]=upPlayers.getItemAtPosition(k).toString();
+                            j++;
+                        }
+                    }
+                    i.putExtra("starting_lineup",startingLineup);
+                    startActivity(i);
+                }
+
+
                 
             default:break;
 

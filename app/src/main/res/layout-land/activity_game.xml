@@ -2,19 +2,43 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:screenOrientation="portrait"
+    android:configChanges="orientation|keyboardHidden"
     tools:context="com.sports.gonzalomoreno.basketstandings.GameActivity"
-    android:background="@color/bck_players2">
+    android:background="@drawable/gradient">
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cabecera_players"
+        android:textColor="@color/color_title"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:textSize="15dp"/>
     <TableLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/tablaDatos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:shrinkColumns="*"
         android:stretchColumns="*">
 
     </TableLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cabecera_standings"
+        android:textColor="@color/color_title"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:textSize="15dp"/>
 
+    <TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tablaDatos2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
+
+    </TableLayout>
 </LinearLayout>

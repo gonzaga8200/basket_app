@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener{
+public class MainActivity extends ActionBarActivity implements View.OnClickListener,AdapterView.OnItemClickListener, DialogInterface.OnMultiChoiceClickListener {
 
     EditText playerList;
     ListView upPlayers;
@@ -44,8 +45,21 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         upPlayers = (ListView) findViewById(R.id.jugadores_aptos);
         buttonAddPlayer = (Button) findViewById(R.id.boton_add);
         myLinear = (LinearLayout) findViewById(R.id.miLinear);
-        ArrayAdapter<String> adapterList2 = new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,android.R.id.text1,supplierNames1);
+        ArrayAdapter<String> adapterList2 = new ArrayAdapter<String>(this,android.R.layout.select_dialog_multichoice,android.R.id.text1,supplierNames1);
         upPlayers.setAdapter(adapterList2);
+        upPlayers.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        upPlayers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+                                    long arg3) {
+
+                //Toast.makeText(TestPreprationActivity.this, "" + upPlayers.getItemAtPosition(arg2),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.mensaje_jugador_introducido, Toast.LENGTH_LONG).show();
+
+            }
+
+        });
         buttonSend = (Button) findViewById(R.id.boton_enviar);
 
 
@@ -107,4 +121,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+
+    }
 }

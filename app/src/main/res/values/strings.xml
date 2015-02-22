@@ -10,6 +10,7 @@
     <string name="title_activity_game">GameActivity</string>
     <string name="cabecera_players">Jugadores</string>
     <string name="cabecera_standings">Estadísticas</string>
+    <string name="mensaje_jugador_introducido">Jugador Añadido</string>
 
     <color name="bck_players">#2E2EFE</color>
     <color name="bck_players2">#FF00FE</color>

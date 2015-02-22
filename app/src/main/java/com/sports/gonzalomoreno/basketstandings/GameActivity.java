@@ -52,6 +52,7 @@ public class GameActivity extends ActionBarActivity {
                 final Button percentage2Points = new Button(this);
                 percentage2Points.setId(i);
                 percentage2Points.setText("0/0");
+                percentage2Points.setWidth(10);
 
                 final Button percentage1Points = new Button(this);
                 percentage1Points.setId(i);
@@ -66,20 +67,20 @@ public class GameActivity extends ActionBarActivity {
                 twoPointsScore.setBackgroundResource(R.drawable.scored);
                 twoPointsScore.setTextColor(Color.WHITE);
                 twoPointsScore.setId(i);
-                twoPointsScore.setTextSize(8);
+                twoPointsScore.setTextSize(10);
                 twoPointsScore.setText("2p V");
 
                 final Button onePointsScore = new Button(this);
                 onePointsScore.setBackgroundResource(R.drawable.scored);
                 onePointsScore.setTextColor(Color.WHITE);
                 onePointsScore.setId(i);
-                onePointsScore.setTextSize(8);
+                onePointsScore.setTextSize(10);
                 onePointsScore.setText("1p V");
 
                 final Button threePointsScore = new Button(this);
                 threePointsScore.setBackgroundResource(R.drawable.scored);
                 threePointsScore.setTextColor(Color.WHITE);
-                threePointsScore.setTextSize(8);
+                threePointsScore.setTextSize(10);
                 threePointsScore.setId(i);
                 threePointsScore.setText("3p V");
 
@@ -128,7 +129,7 @@ public class GameActivity extends ActionBarActivity {
 
                 final Button twoPointsFailed = new Button(this);
                 twoPointsFailed.setId(i);
-                twoPointsFailed.setTextSize(8);
+                twoPointsFailed.setTextSize(10);
                 twoPointsFailed.setText("2p X");
                 twoPointsFailed.setBackgroundResource(R.drawable.failed);
                 twoPointsFailed.setOnClickListener(new View.OnClickListener() {
@@ -145,7 +146,7 @@ public class GameActivity extends ActionBarActivity {
 
                 final Button onePointsFailed = new Button(this);
                 onePointsFailed.setId(i);
-                onePointsFailed.setTextSize(8);
+                onePointsFailed.setTextSize(10);
                 onePointsFailed.setText("1p X");
                 onePointsFailed.setBackgroundResource(R.drawable.failed);
                 onePointsFailed.setOnClickListener(new View.OnClickListener() {
@@ -162,7 +163,7 @@ public class GameActivity extends ActionBarActivity {
 
                 final Button threePointsFailed = new Button(this);
                 threePointsFailed.setId(i);
-                threePointsFailed.setTextSize(8);
+                threePointsFailed.setTextSize(10);
                 threePointsFailed.setText("3p X");
                 threePointsFailed.setBackgroundResource(R.drawable.failed);
                 threePointsFailed.setOnClickListener(new View.OnClickListener() {

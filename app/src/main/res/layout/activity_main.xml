@@ -6,27 +6,41 @@
     android:id="@+id/miLinear"
     android:background="@drawable/gradient">
 
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+        <TableRow
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/boton_add"
+                android:text="@string/texto_boton"
+                android:layout_gravity="center"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/boton_enviar"
+                android:text="@string/texto_boton_enviar"/>
+        </TableRow>
 
+    </TableLayout>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/lista_jugadores"
         android:hint="@string/pista_jugadores"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/boton_add"
-        android:text="@string/texto_boton"/>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/jugadores_aptos">
 
      </ListView>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/boton_enviar"
-        android:text="@string/texto_boton_enviar"/>
+
 
 </LinearLayout>

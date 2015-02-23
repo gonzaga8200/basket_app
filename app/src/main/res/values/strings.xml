@@ -16,6 +16,8 @@
     <color name="bck_players">#2E2EFE</color>
     <color name="bck_players2">#FF00FE</color>
     <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="black">#000000</color>
     <color name="color_title">#2B1227</color>
 
     <string name="title_activity_intro">Intro</string>

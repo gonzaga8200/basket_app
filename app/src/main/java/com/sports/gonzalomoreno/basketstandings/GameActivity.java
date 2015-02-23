@@ -24,8 +24,6 @@ public class GameActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        dataTable = (TableLayout) findViewById(R.id.tablaDatos);
-        dataTable2 = (TableLayout) findViewById(R.id.tablaDatos2);
         Bundle extras = getIntent().getExtras();
         if (extras != null){
             players = extras.getStringArray("player_list");
@@ -33,21 +31,13 @@ public class GameActivity extends ActionBarActivity {
             for (int i=0; i < players.length; i++){
                 final int playerNumber = i;
 
-                TableRow row = new TableRow(this);
-                TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
-                row.setLayoutParams(lp);
 
-                TableRow rowStandings = new TableRow(this);
-                TableRow.LayoutParams lpStandings = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
-                rowStandings.setLayoutParams(lpStandings);
 
-                final TextView myPlayer = new TextView(this);
-                myPlayer.setTextColor(Color.parseColor("#2E2E2E"));
-                myPlayer.setText(players[i]);
 
-                TextView myPlayerStanding = new TextView(this);
-                myPlayerStanding.setTextColor(Color.parseColor("#2E2E2E"));
-                myPlayerStanding.setText(players[i]);
+
+
+
+
 
                 final Button percentage2Points = new Button(this);
                 percentage2Points.setId(i);
@@ -176,20 +166,9 @@ public class GameActivity extends ActionBarActivity {
                     }
                 });
 
-                row.addView(myPlayer);
-                row.addView(twoPointsScore);
-                row.addView(twoPointsFailed);
-                row.addView(onePointsScore);
-                row.addView(onePointsFailed);
-                row.addView(threePointsScore);
-                row.addView(threePointsFailed);
-                rowStandings.addView(myPlayerStanding);
-                rowStandings.addView(percentage2Points);
-                rowStandings.addView(percentage1Points);
-                rowStandings.addView(percentage3Points);
 
-                dataTable.addView(row,i);
-                dataTable2.addView(rowStandings,i);
+
+
             }
 
 

@@ -16,66 +16,43 @@ import android.widget.TextView;
 
 
 public class GameActivity extends ActionBarActivity {
-    String[] players;
-    ListView listMatch;
-    TableLayout dataTable,dataTable2;
+    String[] players,startingLineup;
+    TextView player1,player2,player3,player4,player5,playerSt1,playerSt2,playerSt3,playerSt4,playerSt5;
+
     public static int [][] standingsBoard ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        player1 = (TextView) findViewById(R.id.jugador1);
+        player2 = (TextView) findViewById(R.id.jugador2);
+        player3 = (TextView) findViewById(R.id.jugador3);
+        player4 = (TextView) findViewById(R.id.jugador4);
+        player5 = (TextView) findViewById(R.id.jugador5);
+
+        playerSt1 = (TextView) findViewById(R.id.jugador1_std);
+        playerSt2 = (TextView) findViewById(R.id.jugador2_std);
+        playerSt3 = (TextView) findViewById(R.id.jugador3_std);
+        playerSt4 = (TextView) findViewById(R.id.jugador4_std);
+        playerSt5 = (TextView) findViewById(R.id.jugador5_std);
         Bundle extras = getIntent().getExtras();
-        if (extras != null){
+        if (extras != null) {
             players = extras.getStringArray("player_list");
+            startingLineup = extras.getStringArray("starting_lineup");
             standingsBoard = new int[11][players.length];
-            for (int i=0; i < players.length; i++){
+            player1.setText(startingLineup[0]);
+            player2.setText(startingLineup[1]);
+            player3.setText(startingLineup[2]);
+            player4.setText(startingLineup[3]);
+            player5.setText(startingLineup[4]);
+
+            playerSt1.setText(startingLineup[0]);
+            playerSt2.setText(startingLineup[1]);
+            playerSt3.setText(startingLineup[2]);
+            playerSt4.setText(startingLineup[3]);
+            playerSt5.setText(startingLineup[4]);
+            /*for (int i=0; i < startingLineup.length; i++){
                 final int playerNumber = i;
-
-
-
-
-
-
-
-
-
-                final Button percentage2Points = new Button(this);
-                percentage2Points.setId(i);
-                percentage2Points.setText("0/0");
-                percentage2Points.setWidth(10);
-
-                final Button percentage1Points = new Button(this);
-                percentage1Points.setId(i);
-                percentage1Points.setText("0/0");
-
-                final Button percentage3Points = new Button(this);
-                percentage3Points.setId(i);
-                percentage3Points.setText("0/0");
-
-
-                final Button twoPointsScore = new Button(this);
-                twoPointsScore.setBackgroundResource(R.drawable.scored);
-                twoPointsScore.setTextColor(Color.WHITE);
-                twoPointsScore.setId(i);
-                twoPointsScore.setTextSize(10);
-                twoPointsScore.setText("2p V");
-
-                final Button onePointsScore = new Button(this);
-                onePointsScore.setBackgroundResource(R.drawable.scored);
-                onePointsScore.setTextColor(Color.WHITE);
-                onePointsScore.setId(i);
-                onePointsScore.setTextSize(10);
-                onePointsScore.setText("1p V");
-
-                final Button threePointsScore = new Button(this);
-                threePointsScore.setBackgroundResource(R.drawable.scored);
-                threePointsScore.setTextColor(Color.WHITE);
-                threePointsScore.setTextSize(10);
-                threePointsScore.setId(i);
-                threePointsScore.setText("3p V");
-
-                /** TWO POINTS SCORE **/
-
 
                 twoPointsScore.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -87,7 +64,7 @@ public class GameActivity extends ActionBarActivity {
                     }
                 });
 
-                /** ONE POINTS SCORE **/
+
 
 
                 onePointsScore.setOnClickListener(new View.OnClickListener() {
@@ -100,7 +77,7 @@ public class GameActivity extends ActionBarActivity {
                     }
                 });
 
-                /** THREE POINTS SCORE **/
+
 
 
                 threePointsScore.setOnClickListener(new View.OnClickListener() {
@@ -113,9 +90,9 @@ public class GameActivity extends ActionBarActivity {
                     }
                 });
 
-                /******* FAILED *******/
 
-                /** TWO POINTS **/
+
+
 
                 final Button twoPointsFailed = new Button(this);
                 twoPointsFailed.setId(i);
@@ -132,7 +109,7 @@ public class GameActivity extends ActionBarActivity {
                     }
                 });
 
-                /** ONE POINTS **/
+
 
                 final Button onePointsFailed = new Button(this);
                 onePointsFailed.setId(i);
@@ -149,7 +126,7 @@ public class GameActivity extends ActionBarActivity {
                     }
                 });
 
-                /** THREE POINTS **/
+
 
                 final Button threePointsFailed = new Button(this);
                 threePointsFailed.setId(i);
@@ -164,18 +141,17 @@ public class GameActivity extends ActionBarActivity {
                         String totalScore =  Integer.toString(standingsBoard[4][playerNumber]);
                         percentage3Points.setText(totalScore + '/' + totalThrows);
                     }
-                });
-
-
-
-
-            }
-
-
+                });*/
 
 
         }
+
+
+
+
+
     }
+
 
 
 

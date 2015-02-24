@@ -34,7 +34,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     Button buttonAddPlayer, buttonSend;
     LinearLayout myLinear;
     List<String> supplierNames1 = new ArrayList<String>();
-    String startingLineup[] = new String[5];
+    String startingLineup[] = new String [5];
 
 
 
@@ -67,6 +67,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         buttonAddPlayer.setOnClickListener(this);
         buttonSend.setOnClickListener(this);
+
 
 
 
@@ -124,9 +125,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     i.putExtra("player_list",selItemArray);
                     int j=0;
                     for (int k = 0; k < checked.size(); k++) {
+                        //startingLineup[j] = new Player(upPlayers.getItemAtPosition(k).toString(),upPlayers.getItemAtPosition(k).toString());
                         if (checked.get(k)) {
-                            startingLineup[j]=upPlayers.getItemAtPosition(k).toString();
+                           
+                            //startingLineup[j]=upPlayers.getItemAtPosition(k).toString();
                             j++;
+
                         }
                     }
                     i.putExtra("starting_lineup",startingLineup);

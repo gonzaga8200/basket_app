@@ -68,11 +68,60 @@ public class Player implements Parcelable {
         this.standings[8]++;
     }
     public void setFouls (){
-        this.standings[8]++;
-    }
-    public void setTurnovers (){
         this.standings[9]++;
     }
+    public void setTurnovers (){
+        this.standings[10]++;
+    }
+    public int getTotal2Throws (){
+        return this.standings[0] + this.standings[1];
+    }
+    public int getTotal2Scored (){
+        return this.standings[0];
+    }
+    public int getTotal2Failed (){
+        return this.standings[1];
+    }
+    public int getTotal1Throws (){
+        return this.standings[1] + this.standings[2];
+    }
+    public int getTotal1Scored (){
+        return this.standings[1];
+    }
+    public int getTotal1Failed (){
+        return this.standings[2];
+    }
+    public int getTotal3Throws (){
+        return this.standings[3] + this.standings[4];
+    }
+    public int getTotal3Scored (){
+        return this.standings[3];
+    }
+    public int getTotal3Failed (){
+        return this.standings[4];
+    }
+    public int getTotalPoints (){
+        return this.getTotal1Scored() + this.getTotal2Scored()*2 + this.getTotal3Scored()*3;
+    }
+    public int getOffRebounds (){
+        return this.standings[6];
+    }
+    public int getDefRebounds (){
+        return this.standings[7];
+    }
+    public int getTotalRebounds (){
+        return this.standings[6] + this.standings[7];
+    }
+    public int getAssistance (){
+        return this.standings[8];
+    }
+    public int getFouls (){
+        return this.standings[9];
+    }
+    public int getTurnovers(){
+        return this.standings[10];
+    }
+
 
 
     @Override

@@ -78,6 +78,7 @@
             android:layout_width="40dp"
             android:layout_height="20dp"
             android:layout_gravity="center_horizontal"
+            android:id="@+id/scored_one"
             android:background="@drawable/scored"
             android:text="1p V"
             android:layout_marginTop="10dp"/>
@@ -87,12 +88,14 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/failed"
             android:text="1p X"
+            android:id="@+id/scored_one_failed"
             android:layout_marginTop="10dp"/>
         <TextView
             android:layout_width="40dp"
             android:layout_height="20dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/scored"
+            android:id="@+id/scored_three_scored"
             android:text="3p V"
             android:layout_marginTop="10dp"/>
         <TextView
@@ -100,6 +103,7 @@
             android:layout_height="20dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/failed"
+            android:id="@+id/scored_three_failed"
             android:text="3p X"
             android:layout_marginTop="10dp"/>
         <TextView
@@ -107,6 +111,7 @@
             android:layout_height="20dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/rebounds"
+            android:id="@+id/rebounds_def"
             android:text="Def. Reb"
             android:layout_marginTop="10dp"/>
         <TextView
@@ -114,6 +119,7 @@
             android:layout_height="20dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/rebounds"
+            android:id="@+id/rebounds_off"
             android:text="Off. Reb"
             android:layout_marginTop="10dp"/>
         <TextView
@@ -122,6 +128,7 @@
             android:layout_gravity="center_horizontal"
             android:background="@color/red"
             android:text="Fouls"
+            android:id="@+id/fouls"
             android:layout_marginTop="10dp"/>
         <TextView
             android:layout_width="40dp"
@@ -129,6 +136,7 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/assistance"
             android:text="Assis"
+            android:id="@+id/assistance"
             android:layout_marginTop="10dp"/>
 
     </LinearLayout>

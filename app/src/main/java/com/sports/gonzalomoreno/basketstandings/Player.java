@@ -40,6 +40,40 @@ public class Player implements Parcelable {
     public int getInitTeam (){
         return initTeam;
     }
+    public void set2pointsScored (){
+        this.standings[0]++;
+    }
+    public void set2pointsFailed (){
+        this.standings[1]++;
+    }
+    public void set1pointsScored (){
+        this.standings[2]++;
+    }
+    public void set1pointsFailed (){
+        this.standings[3]++;
+    }
+    public void set3pointsScored (){
+        this.standings[4]++;
+    }
+    public void set3pointsFailed (){
+        this.standings[5]++;
+    }
+    public void setOffRebound (){
+        this.standings[6]++;
+    }
+    public void setDefRebound (){
+        this.standings[7]++;
+    }
+    public void setAssistance (){
+        this.standings[8]++;
+    }
+    public void setFouls (){
+        this.standings[8]++;
+    }
+    public void setTurnovers (){
+        this.standings[9]++;
+    }
+
 
     @Override
     public int describeContents() {

@@ -49,6 +49,7 @@ public class GameActivity extends ActionBarActivity {
                 if (aux.getInitTeam()==1){
                     players[j].setText(aux.getNumber());
                 }
+                j++;
             }
 
 

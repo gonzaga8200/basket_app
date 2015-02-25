@@ -129,7 +129,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                         Player newPlayer = new Player(upPlayers.getItemAtPosition(j).toString(),upPlayers.getItemAtPosition(j).toString());
                         if (checked.get(j)) {
                             newPlayer.setInitTeam(1);
-                            j++;
                         }
                         startingLineup.add(newPlayer);
                     }

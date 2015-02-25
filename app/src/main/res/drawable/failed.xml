@@ -13,8 +13,11 @@
         />
 
     <size
-        android:width="6dp"
-        android:height="2dp"
+        android:width="100px"
+        android:height="10px"
+        />
+    <padding
+        android:left="10px"
         />
 
 

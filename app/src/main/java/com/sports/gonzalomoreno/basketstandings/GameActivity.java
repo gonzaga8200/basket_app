@@ -14,21 +14,25 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 
 public class GameActivity extends ActionBarActivity {
-    String[] players,startingLineup;
-    TextView player1,player2,player3,player4,player5,playerSt1,playerSt2,playerSt3,playerSt4,playerSt5;
+    ArrayList<Player> startingLineup = new ArrayList<Player>();
+    TextView playerSt1,playerSt2,playerSt3,playerSt4,playerSt5;
+    TextView [] players = new TextView[5];
 
     public static int [][] standingsBoard ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        player1 = (TextView) findViewById(R.id.jugador1);
-        player2 = (TextView) findViewById(R.id.jugador2);
-        player3 = (TextView) findViewById(R.id.jugador3);
-        player4 = (TextView) findViewById(R.id.jugador4);
-        player5 = (TextView) findViewById(R.id.jugador5);
+        players[0] = (TextView) findViewById(R.id.jugador1);
+        players[1] = (TextView) findViewById(R.id.jugador2);
+        players[2] = (TextView) findViewById(R.id.jugador3);
+        players[3] = (TextView) findViewById(R.id.jugador4);
+        players[4] = (TextView) findViewById(R.id.jugador5);
 
         playerSt1 = (TextView) findViewById(R.id.jugador1_std);
         playerSt2 = (TextView) findViewById(R.id.jugador2_std);
@@ -37,20 +41,18 @@ public class GameActivity extends ActionBarActivity {
         playerSt5 = (TextView) findViewById(R.id.jugador5_std);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            players = extras.getStringArray("player_list");
-            startingLineup = extras.getStringArray("starting_lineup");
-            standingsBoard = new int[11][players.length];
-            player1.setText(startingLineup[0]);
-            player2.setText(startingLineup[1]);
-            player3.setText(startingLineup[2]);
-            player4.setText(startingLineup[3]);
-            player5.setText(startingLineup[4]);
+            startingLineup = extras.getParcelableArrayList("starting_lineup");
+            Iterator<Player> playerIterator = startingLineup.iterator();
+            int j=0;
+            while (playerIterator.hasNext()){
+                Player aux = playerIterator.next();
+                if (aux.getInitTeam()==1){
+                    players[j].setText(aux.getNumber());
+                }
+            }
 
-            playerSt1.setText(startingLineup[0]);
-            playerSt2.setText(startingLineup[1]);
-            playerSt3.setText(startingLineup[2]);
-            playerSt4.setText(startingLineup[3]);
-            playerSt5.setText(startingLineup[4]);
+
+
             /*for (int i=0; i < startingLineup.length; i++){
                 final int playerNumber = i;
 

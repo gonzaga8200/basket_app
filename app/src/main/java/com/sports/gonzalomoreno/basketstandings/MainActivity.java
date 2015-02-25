@@ -34,9 +34,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     Button buttonAddPlayer, buttonSend;
     LinearLayout myLinear;
     List<String> supplierNames1 = new ArrayList<String>();
-    String startingLineup[] = new String [5];
-
-
+    ArrayList<Player> startingLineup = new ArrayList<Player>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +100,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             case R.id.boton_add:
                 if (!playerList.getText().toString().isEmpty()){
                     supplierNames1.add(playerList.getText().toString());
+                    //upPlayers.addView(playerList);
+
                     playerList.setText("");
                 }
                 else{
@@ -123,22 +123,24 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     selItemArray = supplierNames1.toArray(selItemArray);
                     Intent i = new Intent(getBaseContext(),GameActivity.class);
                     i.putExtra("player_list",selItemArray);
-                    int j=0;
-                    for (int k = 0; k < checked.size(); k++) {
-                        //startingLineup[j] = new Player(upPlayers.getItemAtPosition(k).toString(),upPlayers.getItemAtPosition(k).toString());
-                        if (checked.get(k)) {
-                           
-                            //startingLineup[j]=upPlayers.getItemAtPosition(k).toString();
-                            j++;
 
+
+                    for (int j = 0; j < upPlayers.getCount(); j++) {
+                        Player newPlayer = new Player(upPlayers.getItemAtPosition(j).toString(),upPlayers.getItemAtPosition(j).toString());
+                        if (checked.get(j)) {
+                            newPlayer.setInitTeam(1);
+                            j++;
                         }
+                        startingLineup.add(newPlayer);
                     }
+
+                    i.putParcelableArrayListExtra("starting_lineup",startingLineup);
                     i.putExtra("starting_lineup",startingLineup);
                     startActivity(i);
                 }
 
 
-                
+
             default:break;
 
         }

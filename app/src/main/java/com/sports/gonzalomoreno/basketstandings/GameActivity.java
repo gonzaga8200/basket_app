@@ -69,6 +69,9 @@ public class GameActivity extends ActionBarActivity {
                         startingLineup.get(0).set2pointsScored();
                         ((TextView) v).getText().toString();
                         String points = Integer.toString(startingLineup.get(0).getTotalPoints());
+                        Player aux = new Player("w","w");
+
+                        startingLineup.indexOf(aux);
                         players[0].setText(points);
                     default:
                         break;

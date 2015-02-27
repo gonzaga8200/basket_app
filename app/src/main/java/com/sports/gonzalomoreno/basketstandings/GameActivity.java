@@ -30,8 +30,6 @@ public class GameActivity extends ActionBarActivity {
     TextView playerSt1,playerSt2,playerSt3,playerSt4,playerSt5,scored2;
     TextView [] players = new TextView[5];
 
-    public static int [][] standingsBoard ;
-
     private final class MyTouchListener implements View.OnTouchListener {
         public boolean onTouch(View view, MotionEvent motionEvent) {
 
@@ -43,14 +41,13 @@ public class GameActivity extends ActionBarActivity {
 
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         players[0] = (TextView) findViewById(R.id.jugador1);
         class MyDragListener implements View.OnDragListener {
-            Drawable enterShape = getResources().getDrawable(R.drawable.players);
-            Drawable normalShape = getResources().getDrawable(R.drawable.players);
 
             @Override
             public boolean onDrag(View v, DragEvent event) {
@@ -70,6 +67,7 @@ public class GameActivity extends ActionBarActivity {
                         break;
                     case DragEvent.ACTION_DRAG_ENDED:
                         startingLineup.get(0).set2pointsScored();
+                        ((TextView) v).getText().toString();
                         String points = Integer.toString(startingLineup.get(0).getTotalPoints());
                         players[0].setText(points);
                     default:

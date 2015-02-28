@@ -73,12 +73,23 @@ public class GameActivity extends ActionBarActivity {
                                 break;
                             }
                         }
-                        ((TextView) v).setText(points);
-                        String [] textSplitted = ((TextView) v).getText().toString().split(" ");
+                        //((TextView) v).setText(points);
                         /*int ressourceId = getResources().getIdentifier(""+i,"id",this.getContext().getPackageName());
                         Button button = (Button) findViewById(ressourceId);
                         TextView auxElement = (TextView) findViewById(R.id.aux.getName()+'std')*/
-                        int ressourceId = getResources().getIdentifier("","id",getBaseContext().getPackageName());
+                        //int ressourceId = getResources().getIdentifier("jugador"+textSplitted[1]+"_std","id",getBaseContext().getPackageName());
+
+                        int entero = v.getId();
+                        String position = "";
+                        for (int i=0; i < players.length; i++){
+                            if (entero == players[i].getId()){
+                                position = Integer.toString(i+1);
+                                break;
+                            }
+                        }
+                        int ressourceId = getResources().getIdentifier("jugador"+position+"_std","id",getBaseContext().getPackageName());
+                        TextView auxElement = (TextView) findViewById(ressourceId);
+                        auxElement.setText(points);
                         break;
                     case DragEvent.ACTION_DRAG_ENDED:
                         break;

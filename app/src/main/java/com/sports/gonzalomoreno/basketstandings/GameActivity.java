@@ -46,7 +46,6 @@ public class GameActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        players[0] = (TextView) findViewById(R.id.jugador1);
         class MyDragListener implements View.OnDragListener {
 
             @Override
@@ -60,30 +59,50 @@ public class GameActivity extends ActionBarActivity {
                         //players[0].setText("pirikichi");
                         break;
                     case DragEvent.ACTION_DRAG_EXITED:
-                        //v.setBackground(normalShape);
+
                         break;
                     case DragEvent.ACTION_DROP:
-                        // Dropped, reassign View to ViewGroup
+
+                        Iterator<Player> playerIterator = startingLineup.iterator();
+                        String points = new String("");
+                        while (playerIterator.hasNext()){
+                            Player aux = playerIterator.next();
+                            if (aux.getName().equals(((TextView) v).getText().toString())){
+                                aux.set2pointsScored();
+                                points = Integer.toString(aux.getTotalPoints());
+                                break;
+                            }
+                        }
+                        ((TextView) v).setText(points);
+                        String [] textSplitted = ((TextView) v).getText().toString().split(" ");
+                        /*int ressourceId = getResources().getIdentifier(""+i,"id",this.getContext().getPackageName());
+                        Button button = (Button) findViewById(ressourceId);
+                        TextView auxElement = (TextView) findViewById(R.id.aux.getName()+'std')*/
+                        int ressourceId = getResources().getIdentifier("","id",getBaseContext().getPackageName());
                         break;
                     case DragEvent.ACTION_DRAG_ENDED:
-                        startingLineup.get(0).set2pointsScored();
-                        ((TextView) v).getText().toString();
-                        String points = Integer.toString(startingLineup.get(0).getTotalPoints());
-                        Player aux = new Player("w","w");
-
-                        startingLineup.indexOf(aux);
-                        players[0].setText(points);
+                        break;
                     default:
                         break;
                 }
                 return true;
             }
         }
+        players[0] = (TextView) findViewById(R.id.jugador1);
         players[0].setOnDragListener(new MyDragListener());
+        playerSt1 = (TextView) findViewById(R.id.jugador1_std);
         players[1] = (TextView) findViewById(R.id.jugador2);
+        players[1].setOnDragListener(new MyDragListener());
+        playerSt2 = (TextView) findViewById(R.id.jugador2_std);
         players[2] = (TextView) findViewById(R.id.jugador3);
+        players[2].setOnDragListener(new MyDragListener());
+        playerSt3 = (TextView) findViewById(R.id.jugador3_std);
         players[3] = (TextView) findViewById(R.id.jugador4);
+        players[3].setOnDragListener(new MyDragListener());
+        playerSt4 = (TextView) findViewById(R.id.jugador4_std);
         players[4] = (TextView) findViewById(R.id.jugador5);
+        players[4].setOnDragListener(new MyDragListener());
+        playerSt5 = (TextView) findViewById(R.id.jugador5_std);
         scored2 = (TextView) findViewById(R.id.scored_two);
         scored2.setOnTouchListener(new MyTouchListener());
 

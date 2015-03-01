@@ -32,23 +32,13 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="50dp"
-                    android:text="Jugador 1"
                     android:id="@+id/jugador1"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:layout_margin="6dp"
-                    android:background="@drawable/players"/>
+                    style="@style/PlayersStyle"
+
+                    />
                 <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="15dp"
-                    android:background="@color/black"
-                    android:textColor="@color/white"
-                    android:id="@+id/jugador1_std"
-                    android:text="0"
-                    android:textAlignment="center"
-                    android:layout_margin="6dp"/>
+                    style="@style/ScorerStyle"
+                    android:id="@+id/jugador1_std"/>
 
                 </LinearLayout>
 
@@ -59,23 +49,12 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="50dp"
-                    android:text="Jugador 2"
-                    android:id="@+id/jugador2"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:layout_margin="6dp"
-                    android:background="@drawable/players"/>
+                    style="@style/PlayersStyle"
+                    android:id="@+id/jugador2"/>
                 <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="15dp"
-                    android:background="@color/black"
-                    android:textColor="@color/white"
+                    style="@style/ScorerStyle"
                     android:id="@+id/jugador2_std"
-                    android:text="0"
-                    android:textAlignment="center"
-                    android:layout_margin="6dp"/>
+                 />
 
             </LinearLayout>
             <LinearLayout
@@ -84,23 +63,11 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="50dp"
-                    android:text="Jugador 3"
-                    android:id="@+id/jugador3"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:layout_margin="6dp"
-                    android:background="@drawable/players"/>
+                    style="@style/PlayersStyle"
+                    android:id="@+id/jugador3"/>
                 <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="15dp"
-                    android:background="@color/black"
-                    android:textColor="@color/white"
-                    android:id="@+id/jugador3_std"
-                    android:text="0"
-                    android:textAlignment="center"
-                    android:layout_margin="6dp"/>
+                    style="@style/ScorerStyle"
+                    android:id="@+id/jugador3_std"/>
 
             </LinearLayout>
 
@@ -116,23 +83,12 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="50dp"
-                    android:text="Jugador 4"
+                    style="@style/PlayersStyle"
                     android:id="@+id/jugador4"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:layout_margin="6dp"
-                    android:background="@drawable/players"/>
+                />
                 <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="15dp"
-                    android:background="@color/black"
-                    android:textColor="@color/white"
-                    android:id="@+id/jugador4_std"
-                    android:text="0"
-                    android:textAlignment="center"
-                    android:layout_margin="6dp"/>
+                    style="@style/ScorerStyle"
+                    android:id="@+id/jugador4_std"/>
 
             </LinearLayout>
             <LinearLayout
@@ -142,23 +98,12 @@
                 android:id="@+id/player1_view">
 
                 <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="50dp"
-                    android:text="Jugador 5"
+                    style="@style/PlayersStyle"
                     android:id="@+id/jugador5"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:layout_margin="6dp"
-                    android:background="@drawable/players"/>
+                />
                 <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="15dp"
-                    android:background="@color/black"
-                    android:textColor="@color/white"
-                    android:id="@+id/jugador5_std"
-                    android:text="0"
-                    android:textAlignment="center"
-                    android:layout_margin="6dp"/>
+                    style="@style/ScorerStyle"
+                    android:id="@+id/jugador5_std"/>
 
             </LinearLayout>
 

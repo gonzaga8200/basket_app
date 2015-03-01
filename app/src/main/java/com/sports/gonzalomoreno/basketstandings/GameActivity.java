@@ -27,7 +27,7 @@ import java.util.Iterator;
 
 public class GameActivity extends ActionBarActivity {
     ArrayList<Player> startingLineup = new ArrayList<Player>();
-    TextView playerSt1,playerSt2,playerSt3,playerSt4,playerSt5,scored2,scored3;
+    TextView playerSt1,playerSt2,playerSt3,playerSt4,playerSt5,scored2,scored3,scored1;
     TextView [] players = new TextView[5];
     String draggable;
 
@@ -45,6 +45,17 @@ public class GameActivity extends ActionBarActivity {
         }
     }
 
+    private void set1points (View v){
+        Iterator<Player> playerIterator = startingLineup.iterator();
+        String points = new String("");
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            if (aux.getName().equals(((TextView) v).getText().toString())){
+                aux.set1pointsScored();
+                break;
+            }
+        }
+    }
     private void set2points (View v){
         Iterator<Player> playerIterator = startingLineup.iterator();
         String points = new String("");
@@ -91,6 +102,7 @@ public class GameActivity extends ActionBarActivity {
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         class MyDragListener implements View.OnDragListener {
@@ -108,12 +120,16 @@ public class GameActivity extends ActionBarActivity {
 
                         break;
                     case DragEvent.ACTION_DROP:
+                        String textStanding = getResources().getString(R.string.two_points);
                         switch (draggable){
-                            case "2p V":
+                            case "2p V"  :
                                 set2points(v);
                                 break;
                             case "3p V":
                                 set3points(v);
+                                break;
+                            case "1p V":
+                                set1points(v);
                                 break;
                             default:
                                 break;
@@ -148,6 +164,8 @@ public class GameActivity extends ActionBarActivity {
         players[4] = (TextView) findViewById(R.id.jugador5);
         players[4].setOnDragListener(new MyDragListener());
         playerSt5 = (TextView) findViewById(R.id.jugador5_std);
+        scored1 = (TextView) findViewById(R.id.scored_one);
+        scored1.setOnTouchListener(new MyTouchListener());
         scored2 = (TextView) findViewById(R.id.scored_two);
         scored2.setOnTouchListener(new MyTouchListener());
         scored3 = (TextView) findViewById(R.id.scored_three);

@@ -12,6 +12,10 @@
     <string name="cabecera_standings">Estadísticas</string>
     <string name="mensaje_jugador_introducido">Jugador Añadido</string>
     <string name="error_jugador_blanco">Debes introducir el nombre del jugador</string>
+    <string name="two_points">2p V</string>
+    <string name="three_points">3p V</string>
+    <string name="two_points_failed">2p X</string>
+    <string name="three_points_failed">3p X</string>
 
     <color name="bck_players">#2E2EFE</color>
     <color name="bck_players2">#FF00FE</color>

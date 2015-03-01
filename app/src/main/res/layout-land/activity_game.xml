@@ -7,38 +7,200 @@
     tools:context="com.sports.gonzalomoreno.basketstandings.GameActivity"
     android:background="@drawable/gradient">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/cabecera_players"
-        android:textColor="@color/color_title"
-        android:layout_margin="@dimen/activity_vertical_margin"
-        android:textSize="15dp"/>
-    <TableLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/tablaDatos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:shrinkColumns="*"
-        android:stretchColumns="*">
 
-    </TableLayout>
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/cabecera_standings"
-        android:textColor="@color/color_title"
-        android:layout_margin="@dimen/activity_vertical_margin"
-        android:textSize="15dp"/>
+        android:layout_height="600dp"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="30dp">
 
-    <TableLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/tablaDatos2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:shrinkColumns="*"
-        android:stretchColumns="*">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-    </TableLayout>
+                    <TextView
+                        android:id="@+id/jugador1"
+                        style="@style/PlayersStyle"
+
+                        />
+                    <TextView
+                        style="@style/ScorerStyle"
+                        android:id="@+id/jugador1_std"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/PlayersStyle"
+                        android:id="@+id/jugador2"/>
+                    <TextView
+                        style="@style/ScorerStyle"
+                        android:id="@+id/jugador2_std"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/PlayersStyle"
+                        android:id="@+id/jugador3"/>
+                    <TextView
+                        style="@style/ScorerStyle"
+                        android:id="@+id/jugador3_std"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/PlayersStyle"
+                        android:id="@+id/jugador4"
+                        />
+                    <TextView
+                        style="@style/ScorerStyle"
+                        android:id="@+id/jugador4_std"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/player1_view">
+
+                    <TextView
+                        style="@style/PlayersStyle"
+                        android:id="@+id/jugador5"
+                        />
+                    <TextView
+                        style="@style/ScorerStyle"
+                        android:id="@+id/jugador5_std"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="60dp"
+                android:layout_gravity="center_horizontal"
+                >
+                <TextView
+                    style="@style/StandingsStyle"
+                    android:background="@drawable/scored"
+                    android:id="@+id/scored_two"
+                    android:text="2p V"/>
+                <TextView
+
+                    style="@style/StandingsStyle"
+                    android:background="@drawable/failed"
+                    android:text="2p X"
+                    android:id="@+id/scored_two_failed"
+                    />
+                <TextView
+                    style="@style/StandingsStyle"
+                    android:id="@+id/scored_one"
+                    android:background="@drawable/scored"
+                    android:text="1p V"
+                    />
+                <TextView
+                    style="@style/StandingsStyle"
+                    android:background="@drawable/failed"
+                    android:text="1p X"
+                    android:id="@+id/scored_one_failed"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    style="@style/StandingsStyle"
+                    android:background="@drawable/scored"
+                    android:id="@+id/scored_three"
+                    android:text="3p V"
+                    />
+                <TextView
+                    style="@style/StandingsStyle"
+                    android:background="@drawable/failed"
+                    android:id="@+id/scored_three_failed"
+                    android:text="3p X"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+                <TextView
+                    style="@style/StandingsStyle"
+                    android:background="@drawable/rebounds"
+                    android:id="@+id/rebounds_def"
+                    android:text="Def. Reb"
+                    />
+                <TextView
+                    style="@style/StandingsStyle"
+                    android:background="@drawable/rebounds"
+                    android:id="@+id/rebounds_off"
+                    android:text="Off. Reb"
+                    />
+                <TextView
+                    style="@style/StandingsStyle"
+                    android:background="@drawable/fouls"
+                    android:text="Fouls"
+                    android:id="@+id/fouls"
+                    />
+                <TextView
+                    style="@style/StandingsStyle"
+                    android:background="@drawable/assistance"
+                    android:text="Assis"
+                    android:id="@+id/assistance"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
 </LinearLayout>

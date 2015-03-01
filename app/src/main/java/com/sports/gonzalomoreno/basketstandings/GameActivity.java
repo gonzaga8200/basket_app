@@ -27,8 +27,9 @@ import java.util.Iterator;
 
 public class GameActivity extends ActionBarActivity {
     ArrayList<Player> startingLineup = new ArrayList<Player>();
-    TextView playerSt1,playerSt2,playerSt3,playerSt4,playerSt5,scored2;
+    TextView playerSt1,playerSt2,playerSt3,playerSt4,playerSt5,scored2,scored3;
     TextView [] players = new TextView[5];
+    String draggable;
 
     private final class MyTouchListener implements View.OnTouchListener {
         public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -36,12 +37,58 @@ public class GameActivity extends ActionBarActivity {
                 ClipData data = ClipData.newPlainText("", "");
                 View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
                 view.startDrag(data, shadowBuilder, null, 0);
+
+                draggable = ((TextView) view).getText().toString();
                 //view.setVisibility(View.INVISIBLE);
                 return false;
 
         }
     }
 
+    private void set2points (View v){
+        Iterator<Player> playerIterator = startingLineup.iterator();
+        String points = new String("");
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            if (aux.getName().equals(((TextView) v).getText().toString())){
+                aux.set2pointsScored();
+                break;
+            }
+        }
+    }
+    private void set3points (View v){
+        Iterator<Player> playerIterator = startingLineup.iterator();
+        String points = new String("");
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            if (aux.getName().equals(((TextView) v).getText().toString())){
+                aux.set3pointsScored();
+                break;
+            }
+        }
+    }
+    private String getPoints (View v){
+        Iterator<Player> playerIterator = startingLineup.iterator();
+        String points = new String("");
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            if (aux.getName().equals(((TextView) v).getText().toString())){
+                points = Integer.toString(aux.getTotalPoints());
+                return points;
+            }
+        }
+        return "";
+    }
+    private String getPositionPlayerUpdated(View v){
+        String position = "";
+        for (int i=0; i < players.length; i++){
+            if (v.getId() == players[i].getId()){
+                position = Integer.toString(i+1);
+                return position;
+            }
+        }
+        return position;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,40 +103,27 @@ public class GameActivity extends ActionBarActivity {
                         // do nothing
                         break;
                     case DragEvent.ACTION_DRAG_ENTERED:
-                        //players[0].setText("pirikichi");
                         break;
                     case DragEvent.ACTION_DRAG_EXITED:
 
                         break;
                     case DragEvent.ACTION_DROP:
-
-                        Iterator<Player> playerIterator = startingLineup.iterator();
-                        String points = new String("");
-                        while (playerIterator.hasNext()){
-                            Player aux = playerIterator.next();
-                            if (aux.getName().equals(((TextView) v).getText().toString())){
-                                aux.set2pointsScored();
-                                points = Integer.toString(aux.getTotalPoints());
+                        switch (draggable){
+                            case "2p V":
+                                set2points(v);
                                 break;
-                            }
-                        }
-                        //((TextView) v).setText(points);
-                        /*int ressourceId = getResources().getIdentifier(""+i,"id",this.getContext().getPackageName());
-                        Button button = (Button) findViewById(ressourceId);
-                        TextView auxElement = (TextView) findViewById(R.id.aux.getName()+'std')*/
-                        //int ressourceId = getResources().getIdentifier("jugador"+textSplitted[1]+"_std","id",getBaseContext().getPackageName());
-
-                        int entero = v.getId();
-                        String position = "";
-                        for (int i=0; i < players.length; i++){
-                            if (entero == players[i].getId()){
-                                position = Integer.toString(i+1);
+                            case "3p V":
+                                set3points(v);
                                 break;
-                            }
+                            default:
+                                break;
                         }
-                        int ressourceId = getResources().getIdentifier("jugador"+position+"_std","id",getBaseContext().getPackageName());
+
+                        int ressourceId = getResources().getIdentifier("jugador"+getPositionPlayerUpdated(v)+"_std","id",getBaseContext().getPackageName());
                         TextView auxElement = (TextView) findViewById(ressourceId);
-                        auxElement.setText(points);
+                        auxElement.setText(getPoints(v));
+
+
                         break;
                     case DragEvent.ACTION_DRAG_ENDED:
                         break;
@@ -116,6 +150,8 @@ public class GameActivity extends ActionBarActivity {
         playerSt5 = (TextView) findViewById(R.id.jugador5_std);
         scored2 = (TextView) findViewById(R.id.scored_two);
         scored2.setOnTouchListener(new MyTouchListener());
+        scored3 = (TextView) findViewById(R.id.scored_three);
+        scored3.setOnTouchListener(new MyTouchListener());
 
 
         Bundle extras = getIntent().getExtras();

@@ -83,19 +83,19 @@ public class Player implements Parcelable {
         return this.standings[1];
     }
     public int getTotal1Throws (){
-        return this.standings[1] + this.standings[2];
+        return this.standings[2] + this.standings[3];
     }
     public int getTotal1Scored (){
-        return this.standings[1];
-    }
-    public int getTotal1Failed (){
         return this.standings[2];
     }
+    public int getTotal1Failed (){
+        return this.standings[3];
+    }
     public int getTotal3Throws (){
-        return this.standings[3] + this.standings[4];
+        return this.standings[4] + this.standings[5];
     }
     public int getTotal3Scored (){
-        return this.standings[3];
+        return this.standings[4];
     }
     public int getTotal3Failed (){
         return this.standings[4];

@@ -152,7 +152,7 @@
             <TextView
                 style="@style/StandingsStyle"
                 android:background="@drawable/scored"
-                android:id="@+id/scored_three_scored"
+                android:id="@+id/scored_three"
                 android:text="3p V"
                 android:layout_marginTop="10dp"/>
             <TextView

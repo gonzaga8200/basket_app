@@ -13,12 +13,10 @@
         />
 
     <size
-        android:width="100px"
-        android:height="10px"
+        android:width="13dp"
+        android:height="12dp"
         />
-    <padding
-        android:left="10px"
-        />
+
 
 
 </shape>

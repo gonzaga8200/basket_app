@@ -54,7 +54,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
                                     long arg3) {
                    //Toast.makeText(TestPreprationActivity.this, "" + upPlayers.getItemAtPosition(arg2),Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), R.string.mensaje_jugador_introducido, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), R.string.mensaje_jugador_introducido, Toast.LENGTH_LONG).show();
 
             }
 
@@ -105,7 +105,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     playerList.setText("");
                 }
                 else{
-                    Toast.makeText(getApplicationContext(),R.string.error_jugador_blanco, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),R.string.error_jugador_blanco, Toast.LENGTH_SHORT).show();
                 }
 
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -115,7 +115,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 SparseBooleanArray checked = upPlayers.getCheckedItemPositions();
 
                 if (upPlayers.getCheckedItemCount()!=5){
-                    Toast.makeText(getApplicationContext(),"Debes de seleccionar 5 jugadores para el quinteto inicial", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Debes de seleccionar 5 jugadores para el quinteto inicial", Toast.LENGTH_SHORT).show();
                 }
                 else{
 

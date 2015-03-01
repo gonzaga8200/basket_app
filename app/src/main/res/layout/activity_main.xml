@@ -38,6 +38,7 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/PlayerList"
         android:id="@+id/jugadores_aptos">
 
      </ListView>

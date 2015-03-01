@@ -154,50 +154,42 @@
                 android:background="@drawable/scored"
                 android:id="@+id/scored_three"
                 android:text="3p V"
-                android:layout_marginTop="10dp"/>
+                />
             <TextView
                 style="@style/StandingsStyle"
                 android:background="@drawable/failed"
                 android:id="@+id/scored_three_failed"
                 android:text="3p X"
-                android:layout_marginTop="10dp"/>
+                />
             </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal">
             <TextView
-                android:layout_width="40dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_horizontal"
+                style="@style/StandingsStyle"
                 android:background="@drawable/rebounds"
                 android:id="@+id/rebounds_def"
                 android:text="Def. Reb"
-                android:layout_marginTop="10dp"/>
+                />
             <TextView
-                android:layout_width="40dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_horizontal"
+                style="@style/StandingsStyle"
                 android:background="@drawable/rebounds"
                 android:id="@+id/rebounds_off"
                 android:text="Off. Reb"
-                android:layout_marginTop="10dp"/>
+               />
             <TextView
-                android:layout_width="40dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/red"
+                style="@style/StandingsStyle"
+                android:background="@drawable/fouls"
                 android:text="Fouls"
                 android:id="@+id/fouls"
-                android:layout_marginTop="10dp"/>
+                />
             <TextView
-                android:layout_width="40dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_horizontal"
+                style="@style/StandingsStyle"
                 android:background="@drawable/assistance"
                 android:text="Assis"
                 android:id="@+id/assistance"
-                android:layout_marginTop="10dp"/>
+             />
 
             </LinearLayout>
 

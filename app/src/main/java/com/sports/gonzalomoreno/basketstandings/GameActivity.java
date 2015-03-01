@@ -27,7 +27,8 @@ import java.util.Iterator;
 
 public class GameActivity extends ActionBarActivity {
     ArrayList<Player> startingLineup = new ArrayList<Player>();
-    TextView playerSt1,playerSt2,playerSt3,playerSt4,playerSt5,scored2,scored3,scored1;
+    TextView playerSt1,playerSt2,playerSt3,playerSt4,playerSt5,
+            scored2,scored3,scored1,scored2Failed,scored1Failed,scored3Failed,offRebounds,defRebounds,fouls,assistance;
     TextView [] players = new TextView[5];
     String draggable;
 
@@ -47,7 +48,6 @@ public class GameActivity extends ActionBarActivity {
 
     private void set1points (View v){
         Iterator<Player> playerIterator = startingLineup.iterator();
-        String points = new String("");
         while (playerIterator.hasNext()){
             Player aux = playerIterator.next();
             if (aux.getName().equals(((TextView) v).getText().toString())){
@@ -56,9 +56,18 @@ public class GameActivity extends ActionBarActivity {
             }
         }
     }
+    private void set1pointsFailed (View v){
+        Iterator<Player> playerIterator = startingLineup.iterator();
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            if (aux.getName().equals(((TextView) v).getText().toString())){
+                aux.set1pointsFailed();
+                break;
+            }
+        }
+    }
     private void set2points (View v){
         Iterator<Player> playerIterator = startingLineup.iterator();
-        String points = new String("");
         while (playerIterator.hasNext()){
             Player aux = playerIterator.next();
             if (aux.getName().equals(((TextView) v).getText().toString())){
@@ -67,13 +76,72 @@ public class GameActivity extends ActionBarActivity {
             }
         }
     }
+    private void set2pointsFailed (View v){
+        Iterator<Player> playerIterator = startingLineup.iterator();
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            if (aux.getName().equals(((TextView) v).getText().toString())){
+                aux.set2pointsFailed();
+                break;
+            }
+        }
+    }
     private void set3points (View v){
         Iterator<Player> playerIterator = startingLineup.iterator();
-        String points = new String("");
         while (playerIterator.hasNext()){
             Player aux = playerIterator.next();
             if (aux.getName().equals(((TextView) v).getText().toString())){
                 aux.set3pointsScored();
+                break;
+            }
+        }
+    }
+    private void set3pointsFailed (View v){
+        Iterator<Player> playerIterator = startingLineup.iterator();
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            if (aux.getName().equals(((TextView) v).getText().toString())){
+                aux.set3pointsFailed();
+                break;
+            }
+        }
+    }
+    private void setOffRebounds (View v){
+        Iterator<Player> playerIterator = startingLineup.iterator();
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            if (aux.getName().equals(((TextView) v).getText().toString())){
+                aux.setOffRebound();
+                break;
+            }
+        }
+    }
+    private void setDefRebounds (View v){
+        Iterator<Player> playerIterator = startingLineup.iterator();
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            if (aux.getName().equals(((TextView) v).getText().toString())){
+                aux.setDefRebound();
+                break;
+            }
+        }
+    }
+    private void setFouls (View v){
+        Iterator<Player> playerIterator = startingLineup.iterator();
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            if (aux.getName().equals(((TextView) v).getText().toString())){
+                aux.setFouls();
+                break;
+            }
+        }
+    }
+    private void setAssistance (View v){
+        Iterator<Player> playerIterator = startingLineup.iterator();
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            if (aux.getName().equals(((TextView) v).getText().toString())){
+                aux.setAssistance();
                 break;
             }
         }
@@ -100,6 +168,7 @@ public class GameActivity extends ActionBarActivity {
         }
         return position;
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -130,6 +199,27 @@ public class GameActivity extends ActionBarActivity {
                                 break;
                             case "1p V":
                                 set1points(v);
+                                break;
+                            case "2p X":
+                                set2pointsFailed(v);
+                                break;
+                            case "3p X":
+                                set3pointsFailed(v);
+                                break;
+                            case "1p X":
+                                set1pointsFailed(v);
+                                break;
+                            case "Off. Reb":
+                                setOffRebounds(v);
+                                break;
+                            case "Def. Reb":
+                                setDefRebounds(v);
+                                break;
+                            case "Fouls":
+                                setFouls(v);
+                                break;
+                            case "Assis":
+                                setAssistance(v);
                                 break;
                             default:
                                 break;
@@ -170,6 +260,20 @@ public class GameActivity extends ActionBarActivity {
         scored2.setOnTouchListener(new MyTouchListener());
         scored3 = (TextView) findViewById(R.id.scored_three);
         scored3.setOnTouchListener(new MyTouchListener());
+        scored2Failed = (TextView) findViewById(R.id.scored_two_failed);
+        scored2Failed.setOnTouchListener(new MyTouchListener());
+        scored3Failed = (TextView) findViewById(R.id.scored_three_failed);
+        scored3Failed.setOnTouchListener(new MyTouchListener());
+        scored1Failed = (TextView) findViewById(R.id.scored_one_failed);
+        scored1Failed.setOnTouchListener(new MyTouchListener());
+        offRebounds = (TextView) findViewById(R.id.rebounds_off);
+        offRebounds.setOnTouchListener(new MyTouchListener());
+        defRebounds = (TextView) findViewById(R.id.rebounds_def);
+        defRebounds.setOnTouchListener(new MyTouchListener());
+        fouls = (TextView) findViewById(R.id.fouls);
+        fouls.setOnTouchListener(new MyTouchListener());
+        assistance = (TextView) findViewById(R.id.assistance);
+        assistance.setOnTouchListener(new MyTouchListener());
 
 
         Bundle extras = getIntent().getExtras();
@@ -181,8 +285,9 @@ public class GameActivity extends ActionBarActivity {
                 Player aux = playerIterator.next();
                 if (aux.getInitTeam()==1){
                     players[j].setText(aux.getNumber());
+                    j++;
                 }
-                j++;
+
             }
         }
     }

@@ -31,19 +31,20 @@ public class GameActivity extends ActionBarActivity {
             scored2,scored3,scored1,scored2Failed,scored1Failed,scored3Failed,offRebounds,defRebounds,fouls,assistance;
     TextView [] players = new TextView[5];
     String draggable;
-
     private final class MyTouchListener implements View.OnTouchListener {
         public boolean onTouch(View view, MotionEvent motionEvent) {
 
                 ClipData data = ClipData.newPlainText("", "");
                 View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
                 view.startDrag(data, shadowBuilder, null, 0);
+                //view.setBackground(getResources().getDrawable(R.drawable.scored_selected));
 
                 draggable = ((TextView) view).getText().toString();
                 //view.setVisibility(View.INVISIBLE);
                 return false;
 
         }
+
     }
 
     private void set1points (View v){
@@ -181,18 +182,20 @@ public class GameActivity extends ActionBarActivity {
                 int action = event.getAction();
                 switch (event.getAction()) {
                     case DragEvent.ACTION_DRAG_STARTED:
-                        // do nothing
-                        break;
-                    case DragEvent.ACTION_DRAG_ENTERED:
-                        break;
-                    case DragEvent.ACTION_DRAG_EXITED:
 
                         break;
+                    case DragEvent.ACTION_DRAG_ENTERED:
+                        v.setBackground(getResources().getDrawable(R.drawable.player_selected));
+                        break;
+                    case DragEvent.ACTION_DRAG_EXITED:
+                        v.setBackground(getResources().getDrawable(R.drawable.players));
+                        break;
                     case DragEvent.ACTION_DROP:
-                        String textStanding = getResources().getString(R.string.two_points);
+                        v.setBackground(getResources().getDrawable(R.drawable.players));
                         switch (draggable){
                             case "2p V"  :
                                 set2points(v);
+
                                 break;
                             case "3p V":
                                 set3points(v);
@@ -232,6 +235,7 @@ public class GameActivity extends ActionBarActivity {
 
                         break;
                     case DragEvent.ACTION_DRAG_ENDED:
+
                         break;
                     default:
                         break;

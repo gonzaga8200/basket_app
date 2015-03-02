@@ -24,6 +24,10 @@
             android:name=".Intro"
             android:label="@string/title_activity_intro" >
         </activity>
+        <activity
+            android:name=".GlobalStanding"
+            android:label="@string/title_activity_global_standing" >
+        </activity>
     </application>
 
 </manifest>

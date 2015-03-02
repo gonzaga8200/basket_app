@@ -196,6 +196,9 @@
 
 
     </LinearLayout>
+    <Button
+        android:id="@+id/buttonStanding"
+        style="@style/ButtonStandingStyle"/>
 
 </LinearLayout>
 

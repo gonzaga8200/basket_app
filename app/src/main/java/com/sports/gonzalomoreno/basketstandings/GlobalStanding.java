@@ -28,12 +28,13 @@ public class GlobalStanding extends ActionBarActivity {
 
             while (playerIterator.hasNext()){
                 LinearLayout rowLinear = new LinearLayout(this);
+
                 rowLinear.setOrientation(LinearLayout.HORIZONTAL);
-                TextView name = new TextView(this);
-                TextView points = new TextView(this);
-                TextView rebounds = new TextView(this);
-                TextView fouls = new TextView(this);
-                TextView assistance = new TextView(this);
+                TextView name = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
+                TextView points = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
+                TextView rebounds = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
+                TextView fouls = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
+                TextView assistance = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
                 Player aux = playerIterator.next();
                 name.setText(aux.getName());
                 points.setText(Integer.toString(aux.getTotalPoints()));

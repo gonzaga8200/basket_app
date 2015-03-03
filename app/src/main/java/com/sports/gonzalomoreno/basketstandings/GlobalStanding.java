@@ -4,7 +4,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -13,7 +16,7 @@ import java.util.Iterator;
 
 public class GlobalStanding extends ActionBarActivity {
     ArrayList<Player> startingLineup = new ArrayList<Player>();
-    LinearLayout mainLinear;
+    TableLayout mainLinear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,28 +27,34 @@ public class GlobalStanding extends ActionBarActivity {
         if (extras != null) {
             startingLineup = extras.getParcelableArrayList("starting_lineup");
             Iterator<Player> playerIterator = startingLineup.iterator();
-            mainLinear = (LinearLayout) findViewById(R.id.parentLinear);
+            mainLinear = (TableLayout) findViewById(R.id.mainTable);
 
             while (playerIterator.hasNext()){
-                LinearLayout rowLinear = new LinearLayout(this);
+                TableRow rowLinear = new TableRow(this);
 
                 rowLinear.setOrientation(LinearLayout.HORIZONTAL);
-                TextView name = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
-                TextView points = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
-                TextView rebounds = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
-                TextView fouls = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
-                TextView assistance = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
+                Button name = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
+                Button points = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
+                Button points2 = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
+                Button points3 = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
+                Button points1 = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
+                /*Button rebounds = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
+                Button fouls = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
+                Button assistance = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);*/
                 Player aux = playerIterator.next();
                 name.setText(aux.getName());
                 points.setText(Integer.toString(aux.getTotalPoints()));
-                fouls.setText(Integer.toString(aux.getFouls()));
+                points2.setText(aux.getPercentage2());
+                points3.setText(aux.getPercentage3());
+                points1.setText(aux.getPercentage1());
+                /*fouls.setText(Integer.toString(aux.getFouls()));
                 assistance.setText(Integer.toString(aux.getAssistance()));
-                rebounds.setText(Integer.toString(aux.getTotalRebounds()));
+                rebounds.setText(Integer.toString(aux.getTotalRebounds()));*/
                 rowLinear.addView(name);
+                rowLinear.addView(points2);
+                rowLinear.addView(points3);
+                rowLinear.addView(points1);
                 rowLinear.addView(points);
-                rowLinear.addView(rebounds);
-                rowLinear.addView(fouls);
-                rowLinear.addView(assistance);
                 mainLinear.addView(rowLinear);
 
             }

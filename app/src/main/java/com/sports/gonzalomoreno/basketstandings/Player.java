@@ -121,6 +121,21 @@ public class Player implements Parcelable {
     public int getTurnovers(){
         return this.standings[10];
     }
+    public String getPercentage2 (){
+        String scored = Integer.toString(this.getTotal2Scored());
+        String total = Integer.toString(this.getTotal2Scored()+this.getTotal2Failed());
+        return scored + '/' +total;
+    }
+    public String getPercentage3 (){
+        String scored = Integer.toString(this.getTotal3Scored());
+        String total = Integer.toString(this.getTotal3Scored()+this.getTotal3Failed());
+        return scored + '/' +total;
+    }
+    public String getPercentage1 (){
+        String scored = Integer.toString(this.getTotal1Scored());
+        String total = Integer.toString(this.getTotal1Scored()+this.getTotal1Failed());
+        return scored + '/' +total;
+    }
 
 
 

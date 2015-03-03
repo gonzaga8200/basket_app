@@ -4,14 +4,53 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class GlobalStanding extends ActionBarActivity {
+    ArrayList<Player> startingLineup = new ArrayList<Player>();
+    LinearLayout mainLinear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_global_standing);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            startingLineup = extras.getParcelableArrayList("starting_lineup");
+            Iterator<Player> playerIterator = startingLineup.iterator();
+            mainLinear = (LinearLayout) findViewById(R.id.parentLinear);
+
+            while (playerIterator.hasNext()){
+                LinearLayout rowLinear = new LinearLayout(this);
+                rowLinear.setOrientation(LinearLayout.HORIZONTAL);
+                TextView name = new TextView(this);
+                TextView points = new TextView(this);
+                TextView rebounds = new TextView(this);
+                TextView fouls = new TextView(this);
+                TextView assistance = new TextView(this);
+                Player aux = playerIterator.next();
+                name.setText(aux.getName());
+                points.setText(Integer.toString(aux.getTotalPoints()));
+                fouls.setText(Integer.toString(aux.getFouls()));
+                assistance.setText(Integer.toString(aux.getAssistance()));
+                rebounds.setText(Integer.toString(aux.getTotalRebounds()));
+                rowLinear.addView(name);
+                rowLinear.addView(points);
+                rowLinear.addView(rebounds);
+                rowLinear.addView(fouls);
+                rowLinear.addView(assistance);
+                mainLinear.addView(rowLinear);
+
+            }
+        }
+
+
     }
 
 

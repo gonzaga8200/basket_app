@@ -1,6 +1,7 @@
 package com.sports.gonzalomoreno.basketstandings;
 
 import android.content.ClipData;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
@@ -25,12 +26,28 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-public class GameActivity extends ActionBarActivity {
+public class GameActivity extends ActionBarActivity implements View.OnClickListener {
     ArrayList<Player> startingLineup = new ArrayList<Player>();
     TextView playerSt1,playerSt2,playerSt3,playerSt4,playerSt5,
             scored2,scored3,scored1,scored2Failed,scored1Failed,scored3Failed,offRebounds,defRebounds,fouls,assistance;
     TextView [] players = new TextView[5];
     String draggable;
+    Button buttonStanding;
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.buttonStanding:
+                Intent i = new Intent(getBaseContext(),GlobalStanding.class);
+                i.putParcelableArrayListExtra("starting_lineup",startingLineup);
+                i.putExtra("starting_lineup",startingLineup);
+                startActivity(i);
+                break;
+            default:
+                break;
+        }
+    }
+
     private final class MyTouchListener implements View.OnTouchListener {
         public boolean onTouch(View view, MotionEvent motionEvent) {
 
@@ -278,6 +295,9 @@ public class GameActivity extends ActionBarActivity {
         fouls.setOnTouchListener(new MyTouchListener());
         assistance = (TextView) findViewById(R.id.assistance);
         assistance.setOnTouchListener(new MyTouchListener());
+        buttonStanding = (Button) findViewById(R.id.buttonStanding);
+        buttonStanding.setOnClickListener(this);
+
 
 
         Bundle extras = getIntent().getExtras();

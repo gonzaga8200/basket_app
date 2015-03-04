@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/mainTable"
+        android:layout_centerHorizontal="true"
 
         >
         <TableRow android:layout_height="wrap_content"
@@ -17,28 +18,29 @@
 
             >
          <Button
-             style="@style/StandingStyleForGlobal"
+             style="@style/StandingStyleForGlobalHeader"
              android:text="Jug."
 
              />
-            <Button
-                style="@style/StandingStyleForGlobal"
-                android:text="2P"
 
-                />
             <Button
-                style="@style/StandingStyleForGlobal"
-                android:text="3P"
-
-                />
-            <Button
-                style="@style/StandingStyleForGlobal"
-                android:text="1P"
-
-                />
-            <Button
-                style="@style/StandingStyleForGlobal"
+                style="@style/StandingStyleForGlobalHeader"
                 android:text="Total"
+
+                />
+            <Button
+                style="@style/StandingStyleForGlobalHeader"
+                android:text="Reb."
+
+                />
+            <Button
+                style="@style/StandingStyleForGlobalHeader"
+                android:text="Fouls"
+
+                />
+            <Button
+                style="@style/StandingStyleForGlobalHeader"
+                android:text="More"
 
                 />
 

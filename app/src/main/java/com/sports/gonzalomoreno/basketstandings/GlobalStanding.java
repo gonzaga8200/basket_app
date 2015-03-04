@@ -1,9 +1,11 @@
 package com.sports.gonzalomoreno.basketstandings;
 
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
@@ -14,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-public class GlobalStanding extends ActionBarActivity {
+public class GlobalStanding extends ActionBarActivity implements View.OnClickListener {
     ArrayList<Player> startingLineup = new ArrayList<Player>();
     TableLayout mainLinear;
 
@@ -33,28 +35,34 @@ public class GlobalStanding extends ActionBarActivity {
                 TableRow rowLinear = new TableRow(this);
 
                 rowLinear.setOrientation(LinearLayout.HORIZONTAL);
-                Button name = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
-                Button points = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
-                Button points2 = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
+                Button name = (Button)getLayoutInflater().inflate(R.layout.standing_player_button, null);
+                TextView points = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
+                /*Button points2 = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
                 Button points3 = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
-                Button points1 = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
-                /*Button rebounds = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
-                Button fouls = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
-                Button assistance = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);*/
+                Button points1 = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);*/
+                TextView rebounds = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
+                TextView fouls = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
+                //Button assistance = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
                 Player aux = playerIterator.next();
                 name.setText(aux.getName());
+                name.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        v.setBackgroundColor(Color.RED);
+                        Button aux = (Button) findViewById(v.getId());
+
+                    }
+                });
                 points.setText(Integer.toString(aux.getTotalPoints()));
-                points2.setText(aux.getPercentage2());
-                points3.setText(aux.getPercentage3());
-                points1.setText(aux.getPercentage1());
-                /*fouls.setText(Integer.toString(aux.getFouls()));
-                assistance.setText(Integer.toString(aux.getAssistance()));
-                rebounds.setText(Integer.toString(aux.getTotalRebounds()));*/
+
+                fouls.setText(Integer.toString(aux.getFouls()));
+                //assistance.setText(Integer.toString(aux.getAssistance()));
+                rebounds.setText(Integer.toString(aux.getTotalRebounds()));
                 rowLinear.addView(name);
-                rowLinear.addView(points2);
-                rowLinear.addView(points3);
-                rowLinear.addView(points1);
                 rowLinear.addView(points);
+                rowLinear.addView(rebounds);
+                rowLinear.addView(fouls);
+                //rowLinear.addView(points);
                 mainLinear.addView(rowLinear);
 
             }
@@ -84,5 +92,10 @@ public class GlobalStanding extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

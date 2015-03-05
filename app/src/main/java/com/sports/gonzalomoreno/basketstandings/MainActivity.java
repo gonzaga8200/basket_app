@@ -35,6 +35,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     LinearLayout myLinear;
     List<String> supplierNames1 = new ArrayList<String>();
     ArrayList<Player> startingLineup = new ArrayList<Player>();
+    Team myTeam = new Team();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,11 +131,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                         if (checked.get(j)) {
                             newPlayer.setInitTeam(1);
                         }
-                        startingLineup.add(newPlayer);
+                        myTeam.addPlayerToRoster(newPlayer);
+                        //startingLineup.add(newPlayer);
                     }
 
-                    i.putParcelableArrayListExtra("starting_lineup",startingLineup);
-                    i.putExtra("starting_lineup",startingLineup);
+
+
+                    i.putExtra("team",myTeam);
                     startActivity(i);
                 }
 

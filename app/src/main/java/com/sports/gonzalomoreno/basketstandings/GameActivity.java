@@ -4,6 +4,7 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Parcelable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.DragEvent;
@@ -28,6 +29,7 @@ import java.util.Iterator;
 
 public class GameActivity extends ActionBarActivity implements View.OnClickListener {
     ArrayList<Player> startingLineup = new ArrayList<Player>();
+    Team myTeam;
     TextView playerSt1,playerSt2,playerSt3,playerSt4,playerSt5,
             scored2,scored3,scored1,scored2Failed,scored1Failed,scored3Failed,offRebounds,defRebounds,fouls,assistance;
     TextView [] players = new TextView[5];
@@ -302,7 +304,7 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            startingLineup = extras.getParcelableArrayList("starting_lineup");
+            Team team = (Team) extras.getParcelable("team");
             Iterator<Player> playerIterator = startingLineup.iterator();
             int j=0;
             while (playerIterator.hasNext()){

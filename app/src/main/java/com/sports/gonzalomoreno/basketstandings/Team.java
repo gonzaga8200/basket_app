@@ -11,9 +11,9 @@ import java.util.Iterator;
 /**
  * Created by Gonzaga on 04/03/2015.
  */
-public class Team {
+public class Team implements Parcelable {
     ArrayList<Player> roster = new ArrayList<Player>();
-    ArrayList<Player> startingLineup =new ArrayList<Player>();
+
     public Team (){
 
     }
@@ -23,7 +23,8 @@ public class Team {
     public void addPlayerToRoster (Player player){
         this.roster.add(player);
     }
-    public void setStartingLineup(){
+    public ArrayList<Player> getStartingLineup(){
+        ArrayList<Player> startingLineup =new ArrayList<Player>();
         Iterator<Player> playerIterator = this.roster.iterator();
         while (playerIterator.hasNext()){
             Player aux = playerIterator.next();
@@ -31,44 +32,55 @@ public class Team {
                 startingLineup.add(aux);
             }
         }
-    }
-    public ArrayList<Player> getStartingLineup(){
         return startingLineup;
     }
     public Player getPlayer(String playerName){
         Iterator<Player> playerIterator = this.roster.iterator();
+        Player response = null;
         while (playerIterator.hasNext()){
             Player aux = playerIterator.next();
             if (aux.getName().equals(playerName)){
-                return aux;
+                response = aux;
+                break;
             }
         }
-        return null;
-    }
-    public Team(Parcel in) {
-        readFromParcel(in);
-    }
-    private void readFromParcel(Parcel in) {
-        this.roster = (ArrayList<Player>) in.readSerializable();
-        this.startingLineup = (ArrayList<Player>) in.readSerializable();
-
-
+        return response;
     }
 
+
+
+    protected Team(Parcel in) {
+        if (in.readByte() == 0x01) {
+            roster = new ArrayList<Player>();
+            in.readList(roster, Player.class.getClassLoader());
+        } else {
+            roster = null;
+        }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeSerializable(roster);
-        dest.writeSerializable(startingLineup);
-
+        if (roster == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(roster);
+        }
     }
 
-
-
-    public static final Parcelable.Creator<Team> CREATOR
-            = new Parcelable.Creator<Team>() {
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Team> CREATOR = new Parcelable.Creator<Team>() {
+        @Override
         public Team createFromParcel(Parcel in) {
-            return new Team();
+            return new Team(in);
         }
 
+        @Override
         public Team[] newArray(int size) {
             return new Team[size];
         }

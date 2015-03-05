@@ -27,28 +27,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-public class GameActivity extends ActionBarActivity implements View.OnClickListener {
+public class GameActivity extends ActionBarActivity  {
     ArrayList<Player> startingLineup = new ArrayList<Player>();
     Team myTeam;
-    TextView playerSt1,playerSt2,playerSt3,playerSt4,playerSt5,
-            scored2,scored3,scored1,scored2Failed,scored1Failed,scored3Failed,offRebounds,defRebounds,fouls,assistance;
+    TextView scored2,scored3,scored1,scored2Failed,scored1Failed,scored3Failed,offRebounds,defRebounds,fouls,assistance;
     TextView [] players = new TextView[5];
+    TextView [] playersScorer = new TextView[5];
     String draggable;
     Button buttonStanding;
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.buttonStanding:
-                Intent i = new Intent(getBaseContext(),GlobalStanding.class);
-                i.putParcelableArrayListExtra("starting_lineup",startingLineup);
-                i.putExtra("starting_lineup",startingLineup);
-                startActivity(i);
-                break;
-            default:
-                break;
-        }
-    }
+
 
     private final class MyTouchListener implements View.OnTouchListener {
         public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -65,131 +53,7 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         }
 
     }
-
-    private void set1points (View v){
-        Iterator<Player> playerIterator = startingLineup.iterator();
-        while (playerIterator.hasNext()){
-            Player aux = playerIterator.next();
-            if (aux.getName().equals(((TextView) v).getText().toString())){
-                aux.set1pointsScored();
-                break;
-            }
-        }
-    }
-    private void set1pointsFailed (View v){
-        Iterator<Player> playerIterator = startingLineup.iterator();
-        while (playerIterator.hasNext()){
-            Player aux = playerIterator.next();
-            if (aux.getName().equals(((TextView) v).getText().toString())){
-                aux.set1pointsFailed();
-                break;
-            }
-        }
-    }
-    private void set2points (View v){
-        Iterator<Player> playerIterator = startingLineup.iterator();
-        while (playerIterator.hasNext()){
-            Player aux = playerIterator.next();
-            if (aux.getName().equals(((TextView) v).getText().toString())){
-                aux.set2pointsScored();
-                break;
-            }
-        }
-    }
-    private void set2pointsFailed (View v){
-        Iterator<Player> playerIterator = startingLineup.iterator();
-        while (playerIterator.hasNext()){
-            Player aux = playerIterator.next();
-            if (aux.getName().equals(((TextView) v).getText().toString())){
-                aux.set2pointsFailed();
-                break;
-            }
-        }
-    }
-    private void set3points (View v){
-        Iterator<Player> playerIterator = startingLineup.iterator();
-        while (playerIterator.hasNext()){
-            Player aux = playerIterator.next();
-            if (aux.getName().equals(((TextView) v).getText().toString())){
-                aux.set3pointsScored();
-                break;
-            }
-        }
-    }
-    private void set3pointsFailed (View v){
-        Iterator<Player> playerIterator = startingLineup.iterator();
-        while (playerIterator.hasNext()){
-            Player aux = playerIterator.next();
-            if (aux.getName().equals(((TextView) v).getText().toString())){
-                aux.set3pointsFailed();
-                break;
-            }
-        }
-    }
-    private void setOffRebounds (View v){
-        Iterator<Player> playerIterator = startingLineup.iterator();
-        while (playerIterator.hasNext()){
-            Player aux = playerIterator.next();
-            if (aux.getName().equals(((TextView) v).getText().toString())){
-                aux.setOffRebound();
-                break;
-            }
-        }
-    }
-    private void setDefRebounds (View v){
-        Iterator<Player> playerIterator = startingLineup.iterator();
-        while (playerIterator.hasNext()){
-            Player aux = playerIterator.next();
-            if (aux.getName().equals(((TextView) v).getText().toString())){
-                aux.setDefRebound();
-                break;
-            }
-        }
-    }
-    private void setFouls (View v){
-        Iterator<Player> playerIterator = startingLineup.iterator();
-        while (playerIterator.hasNext()){
-            Player aux = playerIterator.next();
-            if (aux.getName().equals(((TextView) v).getText().toString())){
-                aux.setFouls();
-                break;
-            }
-        }
-    }
-    private void setAssistance (View v){
-        Iterator<Player> playerIterator = startingLineup.iterator();
-        while (playerIterator.hasNext()){
-            Player aux = playerIterator.next();
-            if (aux.getName().equals(((TextView) v).getText().toString())){
-                aux.setAssistance();
-                break;
-            }
-        }
-    }
-    private String getPoints (View v){
-        Iterator<Player> playerIterator = startingLineup.iterator();
-        String points = new String("");
-        while (playerIterator.hasNext()){
-            Player aux = playerIterator.next();
-            if (aux.getName().equals(((TextView) v).getText().toString())){
-                points = Integer.toString(aux.getTotalPoints());
-                return points;
-            }
-        }
-        return "";
-    }
-    private String getPositionPlayerUpdated(View v){
-        String position = "";
-        for (int i=0; i < players.length; i++){
-            if (v.getId() == players[i].getId()){
-                position = Integer.toString(i+1);
-                return position;
-            }
-        }
-        return position;
-    }
-
-    @Override
+       @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -211,45 +75,46 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
                         break;
                     case DragEvent.ACTION_DROP:
                         v.setBackground(getResources().getDrawable(R.drawable.players));
+                        Player player = myTeam.getPlayer(((TextView) v).getText().toString());
                         switch (draggable){
                             case "2p V"  :
-                                set2points(v);
-
+                                //set2points(v);
+                                player.set2pointsScored();
                                 break;
                             case "3p V":
-                                set3points(v);
+                                player.set3pointsScored();
                                 break;
                             case "1p V":
-                                set1points(v);
+                                player.set1pointsScored();
                                 break;
                             case "2p X":
-                                set2pointsFailed(v);
+                                player.set2pointsFailed();
                                 break;
                             case "3p X":
-                                set3pointsFailed(v);
+                                player.set3pointsFailed();
                                 break;
                             case "1p X":
-                                set1pointsFailed(v);
+                                player.set1pointsFailed();
                                 break;
                             case "Off. Reb":
-                                setOffRebounds(v);
+                                player.setOffRebound();
                                 break;
                             case "Def. Reb":
-                                setDefRebounds(v);
+                                player.setDefRebound();
                                 break;
                             case "Fouls":
-                                setFouls(v);
+                                player.setFouls();
                                 break;
                             case "Assis":
-                                setAssistance(v);
+                                player.setAssistance();
                                 break;
                             default:
                                 break;
                         }
 
-                        int ressourceId = getResources().getIdentifier("jugador"+getPositionPlayerUpdated(v)+"_std","id",getBaseContext().getPackageName());
-                        TextView auxElement = (TextView) findViewById(ressourceId);
-                        auxElement.setText(getPoints(v));
+                        int resourceId = getResources().getIdentifier("jugador"+myTeam.getStartingLineup().indexOf(player)+"_std","id",getBaseContext().getPackageName());
+                        TextView scorerPlayer = (TextView) findViewById(resourceId);
+                        scorerPlayer.setText(Integer.toString(player.getTotalPoints()));
 
 
                         break;
@@ -262,21 +127,7 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
                 return true;
             }
         }
-        players[0] = (TextView) findViewById(R.id.jugador1);
-        players[0].setOnDragListener(new MyDragListener());
-        playerSt1 = (TextView) findViewById(R.id.jugador1_std);
-        players[1] = (TextView) findViewById(R.id.jugador2);
-        players[1].setOnDragListener(new MyDragListener());
-        playerSt2 = (TextView) findViewById(R.id.jugador2_std);
-        players[2] = (TextView) findViewById(R.id.jugador3);
-        players[2].setOnDragListener(new MyDragListener());
-        playerSt3 = (TextView) findViewById(R.id.jugador3_std);
-        players[3] = (TextView) findViewById(R.id.jugador4);
-        players[3].setOnDragListener(new MyDragListener());
-        playerSt4 = (TextView) findViewById(R.id.jugador4_std);
-        players[4] = (TextView) findViewById(R.id.jugador5);
-        players[4].setOnDragListener(new MyDragListener());
-        playerSt5 = (TextView) findViewById(R.id.jugador5_std);
+
         scored1 = (TextView) findViewById(R.id.scored_one);
         scored1.setOnTouchListener(new MyTouchListener());
         scored2 = (TextView) findViewById(R.id.scored_two);
@@ -298,21 +149,33 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         assistance = (TextView) findViewById(R.id.assistance);
         assistance.setOnTouchListener(new MyTouchListener());
         buttonStanding = (Button) findViewById(R.id.buttonStanding);
-        buttonStanding.setOnClickListener(this);
+        buttonStanding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getBaseContext(),GlobalStanding.class);
+                i.putExtra("team",myTeam);
+                startActivity(i);
+                startActivity(i);
+            }
+        });
 
 
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            Team team = (Team) extras.getParcelable("team");
-            Iterator<Player> playerIterator = startingLineup.iterator();
+            myTeam = extras.getParcelable("team");
+            Iterator<Player> playerIterator = myTeam.getStartingLineup().iterator();
             int j=0;
             while (playerIterator.hasNext()){
+                int k = j+1;
                 Player aux = playerIterator.next();
-                if (aux.getInitTeam()==1){
-                    players[j].setText(aux.getNumber());
-                    j++;
-                }
+                int resourcePlayer = getResources().getIdentifier("jugador"+k,"id",getBaseContext().getPackageName());
+                int resourceScorer = getResources().getIdentifier("jugador"+k+"_std","id",getBaseContext().getPackageName());
+                players[j] = (TextView) findViewById(resourcePlayer);
+                players[j].setText(aux.getName());
+                players[j].setOnDragListener(new MyDragListener());
+                playersScorer[j] = (TextView) findViewById(resourceScorer);
+                j++;
 
             }
         }

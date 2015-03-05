@@ -19,6 +19,7 @@ import java.util.Iterator;
 public class GlobalStanding extends ActionBarActivity implements View.OnClickListener {
     ArrayList<Player> startingLineup = new ArrayList<Player>();
     TableLayout mainLinear;
+    Team myTeam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +28,8 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            startingLineup = extras.getParcelableArrayList("starting_lineup");
-            Iterator<Player> playerIterator = startingLineup.iterator();
+            myTeam = extras.getParcelable("team");
+            Iterator<Player> playerIterator = myTeam.roster.iterator();
             mainLinear = (TableLayout) findViewById(R.id.mainTable);
 
             while (playerIterator.hasNext()){
@@ -43,13 +44,21 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
                 TextView rebounds = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
                 TextView fouls = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
                 //Button assistance = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
-                Player aux = playerIterator.next();
+                final Player aux = playerIterator.next();
                 name.setText(aux.getName());
                 name.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        v.setBackgroundColor(Color.RED);
-                        Button aux = (Button) findViewById(v.getId());
+                        if (aux.getInitTeam()==1){
+                            v.setBackgroundColor(Color.RED);
+                            aux.setInitTeam(0);
+                        }
+                        else{
+                            v.setBackgroundColor(Color.GREEN);
+                            aux.setInitTeam(1);
+                        }
+
+
 
                     }
                 });

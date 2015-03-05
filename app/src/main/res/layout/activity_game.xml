@@ -38,7 +38,7 @@
                     />
                 <TextView
                     style="@style/ScorerStyle"
-                    android:id="@+id/jugador1_std"/>
+                    android:id="@+id/jugador0_std"/>
 
                 </LinearLayout>
 
@@ -53,7 +53,7 @@
                     android:id="@+id/jugador2"/>
                 <TextView
                     style="@style/ScorerStyle"
-                    android:id="@+id/jugador2_std"
+                    android:id="@+id/jugador1_std"
                  />
 
             </LinearLayout>
@@ -67,7 +67,7 @@
                     android:id="@+id/jugador3"/>
                 <TextView
                     style="@style/ScorerStyle"
-                    android:id="@+id/jugador3_std"/>
+                    android:id="@+id/jugador2_std"/>
 
             </LinearLayout>
 
@@ -88,7 +88,7 @@
                 />
                 <TextView
                     style="@style/ScorerStyle"
-                    android:id="@+id/jugador4_std"/>
+                    android:id="@+id/jugador3_std"/>
 
             </LinearLayout>
             <LinearLayout
@@ -103,7 +103,7 @@
                 />
                 <TextView
                     style="@style/ScorerStyle"
-                    android:id="@+id/jugador5_std"/>
+                    android:id="@+id/jugador4_std"/>
 
             </LinearLayout>
 

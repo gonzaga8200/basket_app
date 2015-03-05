@@ -1,5 +1,6 @@
 package com.sports.gonzalomoreno.basketstandings;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -80,7 +81,14 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(getBaseContext(),GameActivity.class);
+        i.putExtra("team",myTeam);
+        startActivity(i);
 
+        super.onBackPressed();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

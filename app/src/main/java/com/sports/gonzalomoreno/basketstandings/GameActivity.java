@@ -155,7 +155,6 @@ public class GameActivity extends ActionBarActivity  {
                 Intent i = new Intent(getBaseContext(),GlobalStanding.class);
                 i.putExtra("team",myTeam);
                 startActivity(i);
-                startActivity(i);
             }
         });
 

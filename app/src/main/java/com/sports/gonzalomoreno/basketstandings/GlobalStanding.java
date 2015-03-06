@@ -1,5 +1,6 @@
 package com.sports.gonzalomoreno.basketstandings;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
@@ -8,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -47,6 +49,39 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
                 TextView points = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
                 TextView rebounds = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
                 TextView fouls = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
+                Button more = new Button(this);
+                more.setBackgroundResource(R.drawable.player_actived);
+                more.setText("prueba");
+                more.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Create custom dialog object
+                        final Dialog dialog = new Dialog(GlobalStanding.this);
+                        // Include dialog.xml file
+                        dialog.setContentView(R.layout.dialog);
+                        // Set dialog title
+                        dialog.setTitle("Ficha del Jugador");
+
+                        // set values for custom dialog components - text, image and button
+                        TextView text = (TextView) dialog.findViewById(R.id.textDialog);
+                        text.setText("Custom dialog Android example.");
+                        ImageView image = (ImageView) dialog.findViewById(R.id.imageDialog);
+                        image.setImageResource(R.drawable.abc_ab_share_pack_holo_dark);
+
+                        dialog.show();
+
+                        Button declineButton = (Button) dialog.findViewById(R.id.declineButton);
+                        // if decline button is clicked, close the custom dialog
+                        declineButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                // Close dialog
+                                dialog.dismiss();
+                            }
+                        });
+
+                    }
+                });
 
                 name.setText(aux.getName());
                 name.setOnClickListener(new View.OnClickListener() {
@@ -74,11 +109,12 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
                 rowLinear.addView(points);
                 rowLinear.addView(rebounds);
                 rowLinear.addView(fouls);
-                //rowLinear.addView(points);
+                rowLinear.addView(more);
                 mainLinear.addView(rowLinear);
 
             }
         }
+
 
 
     }
@@ -87,7 +123,7 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
     public void onBackPressed() {
         Intent i = new Intent(getBaseContext(),GameActivity.class);
         i.putExtra("team",myTeam);
-        setResult(RESULT_OK,i);
+        setResult(RESULT_OK, i);
         finish();
         startActivity(i);
 

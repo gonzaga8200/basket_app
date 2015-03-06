@@ -139,6 +139,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
 
                     i.putExtra("team",myTeam);
+                    finish();
                     startActivity(i);
                 }
 

@@ -181,6 +181,15 @@ public class GameActivity extends ActionBarActivity  {
         }
     }
 
+    public void onBackPressed() {
+        Intent i = new Intent(getBaseContext(),MainActivity.class);
+        finish();
+        startActivity(i);
+
+
+        super.onBackPressed();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 

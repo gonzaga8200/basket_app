@@ -41,11 +41,17 @@
 
 
     </style>
-    <style name="StandingStyleForGlobal" parent="@android:style/Widget.Button">
+    <style name="StandingStyleForGlobalActive" parent="@android:style/Widget.Button">
         <item name="android:layout_width">60dp</item>
 
         <item name="android:textColor">#ffe9e9e9</item>
         <item name="android:background">#ff02a335</item>
+    </style>
+    <style name="StandingStyleForGlobalDisable" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">60dp</item>
+
+        <item name="android:textColor">#ffe9e9e9</item>
+        <item name="android:background">#ffa30f04</item>
     </style>
     <style name="StandingStyleForGlobalView" parent="@android:style/Widget.Button">
         <item name="android:layout_width">60dp</item>

@@ -34,28 +34,30 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
             mainLinear = (TableLayout) findViewById(R.id.mainTable);
 
             while (playerIterator.hasNext()){
+                final Player aux = playerIterator.next();
                 TableRow rowLinear = new TableRow(this);
 
                 rowLinear.setOrientation(LinearLayout.HORIZONTAL);
-                Button name = (Button)getLayoutInflater().inflate(R.layout.standing_player_button, null);
+                Button name = new Button(this);
+                name.setTextColor(Color.WHITE);
+                if (aux.getInitTeam()==1)
+                    name.setBackgroundResource(R.drawable.player_actived);
+                else
+                    name.setBackgroundResource(R.drawable.player_disbale);
                 TextView points = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
-                /*Button points2 = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
-                Button points3 = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
-                Button points1 = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);*/
                 TextView rebounds = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
                 TextView fouls = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
-                //Button assistance = (Button)getLayoutInflater().inflate(R.layout.standing_player, null);
-                final Player aux = playerIterator.next();
+
                 name.setText(aux.getName());
                 name.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (aux.getInitTeam()==1){
-                            v.setBackgroundColor(Color.RED);
+                            v.setBackgroundResource(R.drawable.player_disbale);
                             aux.setInitTeam(0);
                         }
                         else{
-                            v.setBackgroundColor(Color.GREEN);
+                            v.setBackgroundResource(R.drawable.player_actived);
                             aux.setInitTeam(1);
                         }
 
@@ -85,7 +87,10 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
     public void onBackPressed() {
         Intent i = new Intent(getBaseContext(),GameActivity.class);
         i.putExtra("team",myTeam);
+        setResult(RESULT_OK,i);
+        finish();
         startActivity(i);
+
 
         super.onBackPressed();
     }

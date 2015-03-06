@@ -32,7 +32,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/jugador1"
+                    android:id="@+id/jugador0"
                     style="@style/PlayersStyle"
 
                     />
@@ -50,7 +50,7 @@
 
                 <TextView
                     style="@style/PlayersStyle"
-                    android:id="@+id/jugador2"/>
+                    android:id="@+id/jugador1"/>
                 <TextView
                     style="@style/ScorerStyle"
                     android:id="@+id/jugador1_std"
@@ -64,7 +64,7 @@
 
                 <TextView
                     style="@style/PlayersStyle"
-                    android:id="@+id/jugador3"/>
+                    android:id="@+id/jugador2"/>
                 <TextView
                     style="@style/ScorerStyle"
                     android:id="@+id/jugador2_std"/>
@@ -84,7 +84,7 @@
 
                 <TextView
                     style="@style/PlayersStyle"
-                    android:id="@+id/jugador4"
+                    android:id="@+id/jugador3"
                 />
                 <TextView
                     style="@style/ScorerStyle"
@@ -99,7 +99,7 @@
 
                 <TextView
                     style="@style/PlayersStyle"
-                    android:id="@+id/jugador5"
+                    android:id="@+id/jugador4"
                 />
                 <TextView
                     style="@style/ScorerStyle"

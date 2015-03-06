@@ -154,6 +154,7 @@ public class GameActivity extends ActionBarActivity  {
             public void onClick(View v) {
                 Intent i = new Intent(getBaseContext(),GlobalStanding.class);
                 i.putExtra("team",myTeam);
+                finish();
                 startActivity(i);
             }
         });
@@ -166,14 +167,14 @@ public class GameActivity extends ActionBarActivity  {
             Iterator<Player> playerIterator = myTeam.getStartingLineup().iterator();
             int j=0;
             while (playerIterator.hasNext()){
-                int k = j+1;
                 Player aux = playerIterator.next();
-                int resourcePlayer = getResources().getIdentifier("jugador"+k,"id",getBaseContext().getPackageName());
-                int resourceScorer = getResources().getIdentifier("jugador"+k+"_std","id",getBaseContext().getPackageName());
+                int resourcePlayer = getResources().getIdentifier("jugador"+j,"id",getBaseContext().getPackageName());
+                int resourceScorer = getResources().getIdentifier("jugador"+j+"_std","id",getBaseContext().getPackageName());
                 players[j] = (TextView) findViewById(resourcePlayer);
                 players[j].setText(aux.getName());
                 players[j].setOnDragListener(new MyDragListener());
                 playersScorer[j] = (TextView) findViewById(resourceScorer);
+                playersScorer[j].setText(Integer.toString(aux.getTotalPoints()));
                 j++;
 
             }

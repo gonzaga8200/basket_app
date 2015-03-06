@@ -15,6 +15,8 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -22,6 +24,7 @@ import java.util.Iterator;
 public class GlobalStanding extends ActionBarActivity implements View.OnClickListener {
     ArrayList<Player> startingLineup = new ArrayList<Player>();
     TableLayout mainLinear;
+
     Team myTeam;
 
     @Override
@@ -46,12 +49,15 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
                     name.setBackgroundResource(R.drawable.player_actived);
                 else
                     name.setBackgroundResource(R.drawable.player_disbale);
-                TextView points = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
+                final TextView points = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
                 TextView rebounds = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
                 TextView fouls = (TextView)getLayoutInflater().inflate(R.layout.standing_player, null);
                 Button more = new Button(this);
-                more.setBackgroundResource(R.drawable.player_actived);
-                more.setText("prueba");
+                more.setBackgroundResource(R.drawable.more);
+                more.setText("+");
+                more.setTextSize(12);
+                more.setTextColor(Color.WHITE);
+
                 more.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -64,11 +70,45 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
 
                         // set values for custom dialog components - text, image and button
                         TextView text = (TextView) dialog.findViewById(R.id.textDialog);
-                        text.setText("Custom dialog Android example.");
                         ImageView image = (ImageView) dialog.findViewById(R.id.imageDialog);
                         image.setImageResource(R.drawable.abc_ab_share_pack_holo_dark);
 
                         dialog.show();
+
+                        TextView points = (TextView) dialog.findViewById(R.id.ptsJugador);
+                        points.setText(Integer.toString(aux.getTotalPoints()));
+
+
+                        TextView points2pPercentage = (TextView) dialog.findViewById(R.id.twoPointsJugador);
+                        points2pPercentage.setText(aux.getPercentage2());
+                        TextView points2pPercentageSymbol = (TextView) dialog.findViewById(R.id.twoPointsJugador);
+                        points2pPercentageSymbol.setText(Float.toString(aux.getPercentageSymbol2())+" %");
+
+                        TextView points3pPercentage = (TextView) dialog.findViewById(R.id.threePointsJugador);
+                        points3pPercentage.setText(aux.getPercentage2());
+                        TextView points3pPercentageSymbol = (TextView) dialog.findViewById(R.id.threePointsJugador);
+                        points3pPercentageSymbol.setText(Float.toString(aux.getPercentageSymbol3())+" %");
+
+                        TextView points1pPercentage = (TextView) dialog.findViewById(R.id.onePointsJugador);
+                        points1pPercentage.setText(aux.getPercentage1());
+                        TextView points1pPercentageSymbol = (TextView) dialog.findViewById(R.id.onePointsJugador);
+                        points1pPercentageSymbol.setText(Float.toString(aux.getPercentageSymbol1())+" %");
+
+                        TextView offRebounds = (TextView) dialog.findViewById(R.id.offReboundsJugador);
+                        offRebounds.setText(Integer.toString(aux.getOffRebounds()));
+
+                        TextView defRebounds = (TextView) dialog.findViewById(R.id.defReboundsJugador);
+                        defRebounds.setText(Integer.toString(aux.getDefRebounds()));
+
+                        TextView totalRebounds = (TextView) dialog.findViewById(R.id.totalReboundsJugador);
+                        totalRebounds.setText(Integer.toString(aux.getTotalRebounds()));
+
+                        TextView assistance = (TextView) dialog.findViewById(R.id.assistanceJugador);
+                        assistance.setText(Integer.toString(aux.getAssistance()));
+
+                        TextView fouls = (TextView) dialog.findViewById(R.id.foulsJugador);
+                        fouls.setText(Integer.toString(aux.getFouls()));
+
 
                         Button declineButton = (Button) dialog.findViewById(R.id.declineButton);
                         // if decline button is clicked, close the custom dialog

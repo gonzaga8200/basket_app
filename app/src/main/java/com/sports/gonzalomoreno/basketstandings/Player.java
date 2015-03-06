@@ -136,6 +136,21 @@ public class Player implements Parcelable {
         String total = Integer.toString(this.getTotal1Scored()+this.getTotal1Failed());
         return scored + '/' +total;
     }
+    public float getPercentageSymbol2 (){
+        if (getTotal2Throws()!=0)
+            return (getTotal2Scored()/getTotal2Throws())*100;
+        else return 0;
+    }
+    public float getPercentageSymbol3 (){
+        if (getTotal3Throws()!=0)
+            return (getTotal3Scored()/getTotal3Throws())*100;
+        else return 0;
+    }
+    public float getPercentageSymbol1 (){
+        if (getTotal1Throws()!=0)
+            return (getTotal1Scored()/getTotal1Throws())*100;
+        else return 0;
+    }
 
 
 

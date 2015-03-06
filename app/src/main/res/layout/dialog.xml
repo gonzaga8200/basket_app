@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="900dp"
-    android:layout_height="500dp" >
+    android:layout_height="500dp"
+    >
 
     <ImageView
         android:id="@+id/imageDialog"
@@ -16,15 +17,108 @@
         android:textColor="#FFF"
         android:layout_toRightOf="@+id/imageDialog"/>
 
-    <Button
-        android:id="@+id/declineButton"
-        android:layout_width="300px"
+    <TextView
+        android:id="@+id/playerName"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text=" Submit "
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_below="@+id/textDialog"
-        android:layout_toRightOf="@+id/imageDialog"
+        android:textColor="#FFF"
+        android:text="Estadísticas de "
+        android:fontFamily="@string/abc_action_menu_overflow_description"
+        android:textColorHighlight="@color/black"
+        android:gravity="center_horizontal"
         />
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+        <TableRow>
+            <TextView
+                android:text="Puntos"
+                style="@style/infoPlayer"/>
+            <TextView
+                android:text="0" android:id="@+id/ptsJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="2 pt" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0/0" android:id="@+id/twoPointsJugador"
+                style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="2 pt %" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0%" android:id="@+id/twoPointsPercentageJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="3 pt" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0/0" android:id="@+id/threePointsJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="3 pt %" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0%" android:id="@+id/threePointsPercentageJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="1 pt" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0/0" android:id="@+id/onePointsJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="1 pt %" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0%" android:id="@+id/onePointsPercentageJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Off. Rebounds" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0" android:id="@+id/offReboundsJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Def. Rebounds" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0" android:id="@+id/defReboundsJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Total Rebounds" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0" android:id="@+id/totalReboundsJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Assistance" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0" android:id="@+id/assistanceJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Fouls" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0" android:id="@+id/foulsJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/declineButton"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_below="@+id/textDialog"
+                android:layout_toRightOf="@+id/imageDialog"
+                android:text="Cerrar"
+                />
+        </TableRow>
+    </TableLayout>
 
 </RelativeLayout>

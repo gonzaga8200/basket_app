@@ -62,7 +62,7 @@
 
 
     </style>
-    <style name="StandingStyleForGlobalHeader" parent="@android:style/Widget.Button">
+    <style name="StandingStyleForGlobalHeader" parent="@android:style/Widget.TextView">
         <item name="android:layout_width">60dp</item>
         <item name="android:layout_height">30dp</item>
         <item name="android:background">#ff1c28b6</item>
@@ -70,19 +70,19 @@
 
 
     </style>
-    <style name="infoPlayer" parent="@android:style/Widget.TextView">
-        <item name="android:layout_width">60dp</item>
+    <style name="infoPlayer" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">120dp</item>
         <item name="android:layout_height">30dp</item>
         <item name="android:background">#ffe8e3e1</item>
         <item name="android:textColor">#ff032c3c</item>
         <item name="android:textSize">13dp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_margin">6dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_margin">2dp</item>
 
 
     </style>
     <style name="PlayerList" parent="@android:style/Widget.ListView">
-        <item name="android:textSize">1dp</item>
+        <item name="android:textSize">9px</item>
     </style>
 
 </resources>

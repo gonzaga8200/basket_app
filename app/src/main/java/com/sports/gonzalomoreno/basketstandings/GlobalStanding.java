@@ -66,7 +66,7 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
                         // Include dialog.xml file
                         dialog.setContentView(R.layout.dialog);
                         // Set dialog title
-                        dialog.setTitle("Ficha del Jugador");
+                        dialog.setTitle(aux.getName());
 
                         // set values for custom dialog components - text, image and button
                         TextView text = (TextView) dialog.findViewById(R.id.textDialog);
@@ -81,18 +81,18 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
 
                         TextView points2pPercentage = (TextView) dialog.findViewById(R.id.twoPointsJugador);
                         points2pPercentage.setText(aux.getPercentage2());
-                        TextView points2pPercentageSymbol = (TextView) dialog.findViewById(R.id.twoPointsJugador);
-                        points2pPercentageSymbol.setText(Float.toString(aux.getPercentageSymbol2())+" %");
+                        TextView points2pPercentageSymbol = (TextView) dialog.findViewById(R.id.twoPointsPercentageJugador);
+                        points2pPercentageSymbol.setText(aux.getPercentageSymbol2());
 
                         TextView points3pPercentage = (TextView) dialog.findViewById(R.id.threePointsJugador);
-                        points3pPercentage.setText(aux.getPercentage2());
-                        TextView points3pPercentageSymbol = (TextView) dialog.findViewById(R.id.threePointsJugador);
-                        points3pPercentageSymbol.setText(Float.toString(aux.getPercentageSymbol3())+" %");
+                        points3pPercentage.setText(aux.getPercentage3());
+                        TextView points3pPercentageSymbol = (TextView) dialog.findViewById(R.id.threePointsPercentageJugador);
+                        points3pPercentageSymbol.setText(aux.getPercentageSymbol3());
 
                         TextView points1pPercentage = (TextView) dialog.findViewById(R.id.onePointsJugador);
                         points1pPercentage.setText(aux.getPercentage1());
-                        TextView points1pPercentageSymbol = (TextView) dialog.findViewById(R.id.onePointsJugador);
-                        points1pPercentageSymbol.setText(Float.toString(aux.getPercentageSymbol1())+" %");
+                        TextView points1pPercentageSymbol = (TextView) dialog.findViewById(R.id.onePointsPercentageJugador);
+                        points1pPercentageSymbol.setText(aux.getPercentageSymbol1());
 
                         TextView offRebounds = (TextView) dialog.findViewById(R.id.offReboundsJugador);
                         offRebounds.setText(Integer.toString(aux.getOffRebounds()));

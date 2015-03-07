@@ -3,6 +3,8 @@ package com.sports.gonzalomoreno.basketstandings;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.text.DecimalFormat;
+
 /**
  * Created by gonzalo.moreno on 24/02/2015.
  */
@@ -123,33 +125,36 @@ public class Player implements Parcelable {
     }
     public String getPercentage2 (){
         String scored = Integer.toString(this.getTotal2Scored());
-        String total = Integer.toString(this.getTotal2Scored()+this.getTotal2Failed());
+        String total = Integer.toString(this.getTotal2Throws());
         return scored + '/' +total;
     }
     public String getPercentage3 (){
         String scored = Integer.toString(this.getTotal3Scored());
-        String total = Integer.toString(this.getTotal3Scored()+this.getTotal3Failed());
+        String total = Integer.toString(this.getTotal3Throws());
         return scored + '/' +total;
     }
     public String getPercentage1 (){
         String scored = Integer.toString(this.getTotal1Scored());
-        String total = Integer.toString(this.getTotal1Scored()+this.getTotal1Failed());
+        String total = Integer.toString(this.getTotal1Throws());
         return scored + '/' +total;
     }
-    public float getPercentageSymbol2 (){
+    public String getPercentageSymbol2 (){
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
         if (getTotal2Throws()!=0)
-            return (getTotal2Scored()/getTotal2Throws())*100;
-        else return 0;
+            return numberFormat.format(((double)getTotal2Scored()/(double)getTotal2Throws())*100) +'%';
+        else return "0%";
     }
-    public float getPercentageSymbol3 (){
+    public String getPercentageSymbol3 (){
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
         if (getTotal3Throws()!=0)
-            return (getTotal3Scored()/getTotal3Throws())*100;
-        else return 0;
+            return numberFormat.format(((double)getTotal3Scored()/(double)getTotal3Throws())*100) +'%';
+        else return "0%";
     }
-    public float getPercentageSymbol1 (){
+    public String getPercentageSymbol1 (){
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
         if (getTotal1Throws()!=0)
-            return (getTotal1Scored()/getTotal1Throws())*100;
-        else return 0;
+            return numberFormat.format(((double)getTotal1Scored()/(double)getTotal1Throws())*100) +'%';
+        else return "0%";
     }
 
 

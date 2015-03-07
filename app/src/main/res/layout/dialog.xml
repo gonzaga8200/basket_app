@@ -17,22 +17,14 @@
         android:textColor="#FFF"
         android:layout_toRightOf="@+id/imageDialog"/>
 
-    <TextView
-        android:id="@+id/playerName"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#FFF"
-        android:text="Estadísticas de "
-        android:fontFamily="@string/abc_action_menu_overflow_description"
-        android:textColorHighlight="@color/black"
-        android:gravity="center_horizontal"
-        />
+
 
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp">
         <TableRow>
             <TextView
                 android:text="Puntos"
@@ -113,7 +105,8 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_gravity="center"
+                android:layout_span="2"
                 android:layout_below="@+id/textDialog"
                 android:layout_toRightOf="@+id/imageDialog"
                 android:text="Cerrar"

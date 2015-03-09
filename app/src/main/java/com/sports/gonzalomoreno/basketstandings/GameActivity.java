@@ -68,13 +68,13 @@ public class GameActivity extends ActionBarActivity  {
 
                         break;
                     case DragEvent.ACTION_DRAG_ENTERED:
-                        v.setBackground(getResources().getDrawable(R.drawable.player_selected));
+                        v.setBackground(getResources().getDrawable(R.drawable.camiseta_on));
                         break;
                     case DragEvent.ACTION_DRAG_EXITED:
-                        v.setBackground(getResources().getDrawable(R.drawable.players));
+                        v.setBackground(getResources().getDrawable(R.drawable.camiseta));
                         break;
                     case DragEvent.ACTION_DROP:
-                        v.setBackground(getResources().getDrawable(R.drawable.players));
+                        v.setBackground(getResources().getDrawable(R.drawable.camiseta));
                         Player player = myTeam.getPlayer(((TextView) v).getText().toString());
                         switch (draggable){
                             case "2p V"  :

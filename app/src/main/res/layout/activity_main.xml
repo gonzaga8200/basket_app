@@ -4,7 +4,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity"
     android:id="@+id/miLinear"
-    android:background="@drawable/gradient">
+    android:background="@drawable/intro">
 
     <TableLayout
         android:layout_width="wrap_content"
@@ -15,26 +15,24 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content">
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMainMenu"
+
                 android:id="@+id/button_add"
                 android:text="@string/text_button_add"
-                android:layout_gravity="center"/>
+                />
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                style="@style/ButtonMainMenu"
                 android:id="@+id/button_send"
                 android:text="@string/text_button_send"/>
         </TableRow>
 
     </TableLayout>
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/TypePlayer"
         android:id="@+id/type_player"
         android:maxLength="10"
-        android:hint="@string/hint_type_player"/>
+        android:hint="@string/hint_type_player"
+        />
 
     <ListView
         android:layout_width="match_parent"

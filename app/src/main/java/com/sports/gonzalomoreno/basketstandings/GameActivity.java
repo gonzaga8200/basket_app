@@ -33,7 +33,7 @@ public class GameActivity extends ActionBarActivity  {
     TextView scored2,scored3,scored1,scored2Failed,scored1Failed,scored3Failed,offRebounds,defRebounds,fouls,assistance;
     TextView [] players = new TextView[5];
     TextView [] playersScorer = new TextView[5];
-    String draggable;
+    int draggable;
     Button buttonStanding;
 
 
@@ -46,13 +46,59 @@ public class GameActivity extends ActionBarActivity  {
                 view.startDrag(data, shadowBuilder, null, 0);
                 //view.setBackground(getResources().getDrawable(R.drawable.scored_selected));
 
-                draggable = ((TextView) view).getText().toString();
+                //draggable = ((TextView) view).getText().toString();
+                draggable = view.getId();
                 //view.setVisibility(View.INVISIBLE);
                 return false;
 
         }
 
     }
+    private boolean setDraggableAction (Player player, int draggable){
+        if (draggable == scored2.getId()){
+            player.set2pointsScored();
+            return true;
+        }
+        if (draggable == scored2Failed.getId()){
+            player.set2pointsFailed();
+            return true;
+        }
+        if (draggable == scored3.getId()){
+            player.set3pointsScored();
+            return true;
+        }
+        if (draggable == scored3Failed.getId()){
+            player.set3pointsFailed();
+            return true;
+        }
+        if (draggable == scored1.getId()){
+            player.set1pointsScored();
+            return true;
+        }
+        if (draggable == scored1Failed.getId()){
+            player.set1pointsFailed();
+            return true;
+        }
+        if (draggable == offRebounds.getId()){
+            player.setOffRebound();
+            return true;
+        }
+        if (draggable == defRebounds.getId()){
+            player.setDefRebound();
+            return true;
+        }
+        if (draggable == fouls.getId()){
+            player.setFouls();
+            return true;
+        }
+        if (draggable == assistance.getId()){
+            player.setAssistance();
+            return true;
+        }
+        return false;
+
+    }
+
        @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -76,40 +122,10 @@ public class GameActivity extends ActionBarActivity  {
                     case DragEvent.ACTION_DROP:
                         v.setBackground(getResources().getDrawable(R.drawable.camiseta));
                         Player player = myTeam.getPlayer(((TextView) v).getText().toString());
-                        switch (draggable){
-                            case "2p V"  :
-                                player.set2pointsScored();
-                                break;
-                            case "3p V":
-                                player.set3pointsScored();
-                                break;
-                            case "1p V":
-                                player.set1pointsScored();
-                                break;
-                            case "2p X":
-                                player.set2pointsFailed();
-                                break;
-                            case "3p X":
-                                player.set3pointsFailed();
-                                break;
-                            case "1p X":
-                                player.set1pointsFailed();
-                                break;
-                            case "Off. Reb":
-                                player.setOffRebound();
-                                break;
-                            case "Def. Reb":
-                                player.setDefRebound();
-                                break;
-                            case "Fouls":
-                                player.setFouls();
-                                break;
-                            case "Assis":
-                                player.setAssistance();
-                                break;
-                            default:
-                                break;
-                        }
+
+
+                        setDraggableAction(player,draggable);
+
 
                         int resourceId = getResources().getIdentifier("jugador"+myTeam.getStartingLineup().indexOf(player)+"_std","id",getBaseContext().getPackageName());
                         TextView scorerPlayer = (TextView) findViewById(resourceId);

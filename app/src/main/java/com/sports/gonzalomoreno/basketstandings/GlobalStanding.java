@@ -45,6 +45,7 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
                 rowLinear.setOrientation(LinearLayout.HORIZONTAL);
                 Button name = new Button(this);
                 name.setTextColor(Color.WHITE);
+                name.setTextSize(12);
                 if (aux.getInitTeam()==1)
                     name.setBackgroundResource(R.drawable.player_actived);
                 else

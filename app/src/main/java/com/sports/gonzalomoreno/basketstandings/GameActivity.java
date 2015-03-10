@@ -78,7 +78,6 @@ public class GameActivity extends ActionBarActivity  {
                         Player player = myTeam.getPlayer(((TextView) v).getText().toString());
                         switch (draggable){
                             case "2p V"  :
-                                //set2points(v);
                                 player.set2pointsScored();
                                 break;
                             case "3p V":

@@ -17,29 +17,29 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/boton_add"
-                android:text="@string/texto_boton"
+                android:id="@+id/button_add"
+                android:text="@string/text_button_add"
                 android:layout_gravity="center"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:id="@+id/boton_enviar"
-                android:text="@string/texto_boton_enviar"/>
+                android:id="@+id/button_send"
+                android:text="@string/text_button_send"/>
         </TableRow>
 
     </TableLayout>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/lista_jugadores"
-        android:hint="@string/pista_jugadores"/>
+        android:id="@+id/type_player"
+        android:maxLength="10"
+        android:hint="@string/hint_type_player"/>
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/PlayerList"
-        android:id="@+id/jugadores_aptos">
+        android:id="@+id/player_list">
 
      </ListView>
 

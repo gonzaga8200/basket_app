@@ -86,7 +86,12 @@
 
     </style>
     <style name="PlayerList" parent="@android:style/Widget.ListView">
-        <item name="android:textSize">9px</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="android:divider">#CCCCCC</item>
+        <item name="android:cacheColorHint">#FFFFFF</item>
+        <item name="android:listSelector">#00000000</item>
     </style>
 
 </resources>

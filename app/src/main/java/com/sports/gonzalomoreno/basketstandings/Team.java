@@ -46,6 +46,51 @@ public class Team implements Parcelable {
         }
         return response;
     }
+    public int getTotalPoints(){
+        Iterator<Player> playerIterator = this.roster.iterator();
+        int points = 0;
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            points+=aux.getTotalPoints();
+        }
+        return points;
+    }
+    public int getTotalRebounds(){
+        Iterator<Player> playerIterator = this.roster.iterator();
+        int rebounds = 0;
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            rebounds+=aux.getTotalRebounds();
+        }
+        return rebounds;
+    }
+    public int getDefensiveRebounds(){
+        Iterator<Player> playerIterator = this.roster.iterator();
+        int rebounds = 0;
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            rebounds+=aux.getDefRebounds();
+        }
+        return rebounds;
+    }
+    public int getOffensiveRebounds(){
+        Iterator<Player> playerIterator = this.roster.iterator();
+        int rebounds = 0;
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            rebounds+=aux.getOffRebounds();
+        }
+        return rebounds;
+    }
+    public int getTotalAssistance(){
+        Iterator<Player> playerIterator = this.roster.iterator();
+        int assistance = 0;
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            assistance+=aux.getAssistance();
+        }
+        return assistance;
+    }
 
 
 

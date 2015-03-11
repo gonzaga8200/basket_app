@@ -8,9 +8,6 @@
     <string name="text_button_add">Añadir</string>
     <string name="text_button_send">Enviar</string>
     <string name="title_activity_game">GameActivity</string>
-    <string name="cabecera_players">Jugadores</string>
-    <string name="cabecera_standings">Estadísticas</string>
-    <string name="mensaje_jugador_introducido">Jugador Añadido</string>
     <string name="error_blank_player">Debes introducir el nombre del jugador</string>
     <string name="error_number_players">Debes seleccionar 5 Jugadores</string>
     <string name="one_points">1p V</string>
@@ -24,8 +21,8 @@
     <string name="fouls">Fouls</string>
     <string name="assistance">Assis.</string>
 
-    <string name="player_standings">Estadísticas Jugador</string>
-    <string name="team_standings">Estadísticas Equipo</string>
+    <string name="player_standings">Playes Stands</string>
+    <string name="team_standings">Team Stands</string>
 
 
     <color name="bck_players">#2E2EFE</color>

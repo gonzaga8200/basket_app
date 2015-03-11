@@ -5,6 +5,7 @@ package com.sports.gonzalomoreno.basketstandings;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -55,6 +56,60 @@ public class Team implements Parcelable {
         }
         return points;
     }
+    public int getTotal2PointsThrows(){
+        Iterator<Player> playerIterator = this.roster.iterator();
+        int throwTwo = 0;
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            throwTwo+=aux.getTotal2Throws();
+        }
+        return throwTwo;
+    }
+    public int getTotal2PointsScored(){
+        Iterator<Player> playerIterator = this.roster.iterator();
+        int scoredTwo = 0;
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            scoredTwo+=aux.getTotal2Scored();
+        }
+        return scoredTwo;
+    }
+    public int getTotal3PointsThrows(){
+        Iterator<Player> playerIterator = this.roster.iterator();
+        int throwThree = 0;
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            throwThree+=aux.getTotal3Throws();
+        }
+        return throwThree;
+    }
+    public int getTotal3PointsScored(){
+        Iterator<Player> playerIterator = this.roster.iterator();
+        int scoredThree = 0;
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            scoredThree+=aux.getTotal3Scored();
+        }
+        return scoredThree;
+    }
+    public int getTotal1PointsThrows(){
+        Iterator<Player> playerIterator = this.roster.iterator();
+        int oneThree = 0;
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            oneThree+=aux.getTotal1Throws();
+        }
+        return oneThree;
+    }
+    public int getTotal1PointsScored(){
+        Iterator<Player> playerIterator = this.roster.iterator();
+        int scoredOne = 0;
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            scoredOne+=aux.getTotal3Scored();
+        }
+        return scoredOne;
+    }
     public int getTotalRebounds(){
         Iterator<Player> playerIterator = this.roster.iterator();
         int rebounds = 0;
@@ -90,6 +145,39 @@ public class Team implements Parcelable {
             assistance+=aux.getAssistance();
         }
         return assistance;
+    }
+    public String getPercentage2 (){
+        String scoredResult = Integer.toString(this.getTotal2PointsScored());
+        String totalResult = Integer.toString(this.getTotal2PointsThrows());
+        return scoredResult + '/' +totalResult;
+    }
+    public String getPercentage3 (){
+        String scoredResult = Integer.toString(this.getTotal3PointsScored());
+        String totalResult = Integer.toString(this.getTotal3PointsThrows());
+        return scoredResult + '/' +totalResult;
+    }
+    public String getPercentage1 (){
+        String scoredResult = Integer.toString(this.getTotal1PointsScored());
+        String totalResult = Integer.toString(this.getTotal1PointsThrows());
+        return scoredResult + '/' +totalResult;
+    }
+    public String getPercentageSymbol2 (){
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
+        if (this.getTotal2PointsThrows()!=0)
+            return numberFormat.format(((double)this.getTotal2PointsScored()/(double)this.getTotal2PointsThrows())*100) +'%';
+        else return "0%";
+    }
+    public String getPercentageSymbol3 (){
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
+        if (this.getTotal3PointsThrows()!=0)
+            return numberFormat.format(((double)this.getTotal3PointsScored()/(double)this.getTotal3PointsThrows())*100) +'%';
+        else return "0%";
+    }
+    public String getPercentageSymbol1 (){
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
+        if (this.getTotal1PointsThrows()!=0)
+            return numberFormat.format(((double)this.getTotal1PointsScored()/(double)this.getTotal2PointsThrows())*100) +'%';
+        else return "0%";
     }
 
 

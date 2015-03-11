@@ -13,11 +13,20 @@
     <string name="mensaje_jugador_introducido">Jugador Añadido</string>
     <string name="error_blank_player">Debes introducir el nombre del jugador</string>
     <string name="error_number_players">Debes seleccionar 5 Jugadores</string>
+    <string name="one_points">1p V</string>
     <string name="two_points">2p V</string>
     <string name="three_points">3p V</string>
+    <string name="one_points_failed">1p X</string>
     <string name="two_points_failed">2p X</string>
     <string name="three_points_failed">3p X</string>
-    <string name="see_standings">Ver Estadísticas</string>
+    <string name="offensive_rebounds">Off. Reb</string>
+    <string name="defensive_rebounds">Def. Reb</string>
+    <string name="fouls">Fouls</string>
+    <string name="assistance">Assis.</string>
+
+    <string name="player_standings">Estadísticas Jugador</string>
+    <string name="team_standings">Estadísticas Equipo</string>
+
 
     <color name="bck_players">#2E2EFE</color>
     <color name="bck_players2">#FF00FE</color>

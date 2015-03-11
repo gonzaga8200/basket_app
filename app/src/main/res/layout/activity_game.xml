@@ -130,37 +130,37 @@
                 style="@style/StandingsStyle"
                 android:background="@drawable/scored"
                 android:id="@+id/scored_two"
-                android:text="2p V"/>
+                android:text="@string/two_points"/>
             <TextView
 
                 style="@style/StandingsStyle"
                 android:background="@drawable/failed"
-                android:text="2p X"
+                android:text="@string/two_points_failed"
                 android:id="@+id/scored_two_failed"
                 />
             <TextView
                 style="@style/StandingsStyle"
                 android:id="@+id/scored_one"
                 android:background="@drawable/scored"
-                android:text="1p V"
+                android:text="@string/one_points"
                 />
             <TextView
                 style="@style/StandingsStyle"
                 android:background="@drawable/failed"
-                android:text="1p X"
+                android:text="@string/one_points_failed"
                 android:id="@+id/scored_one_failed"
                 android:layout_marginTop="10dp"/>
             <TextView
                 style="@style/StandingsStyle"
                 android:background="@drawable/scored"
                 android:id="@+id/scored_three"
-                android:text="3p V"
+                android:text="@string/three_points"
                 />
             <TextView
                 style="@style/StandingsStyle"
                 android:background="@drawable/failed"
                 android:id="@+id/scored_three_failed"
-                android:text="3p X"
+                android:text="@string/one_points_failed"
                 />
             </LinearLayout>
         <LinearLayout
@@ -171,24 +171,24 @@
                 style="@style/StandingsStyle"
                 android:background="@drawable/rebounds"
                 android:id="@+id/rebounds_def"
-                android:text="Def. Reb"
+                android:text="@string/defensive_rebounds"
                 />
             <TextView
                 style="@style/StandingsStyle"
                 android:background="@drawable/rebounds"
                 android:id="@+id/rebounds_off"
-                android:text="Off. Reb"
+                android:text="@string/offensive_rebounds"
                />
             <TextView
                 style="@style/StandingsStyle"
                 android:background="@drawable/fouls"
-                android:text="Fouls"
+                android:text="@string/fouls"
                 android:id="@+id/fouls"
                 />
             <TextView
                 style="@style/StandingsStyle"
                 android:background="@drawable/assistance"
-                android:text="Assis"
+                android:text="@string/assistance"
                 android:id="@+id/assistance"
              />
 

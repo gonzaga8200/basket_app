@@ -20,10 +20,8 @@
     <string name="defensive_rebounds">Def. Reb</string>
     <string name="fouls">Fouls</string>
     <string name="assistance">Assis.</string>
-
     <string name="player_standings">Playes Stands</string>
     <string name="team_standings">Team Stands</string>
-
 
     <color name="bck_players">#2E2EFE</color>
     <color name="bck_players2">#FF00FE</color>
@@ -34,5 +32,6 @@
 
     <string name="title_activity_intro">Intro</string>
     <string name="title_activity_global_standing">GlobalStanding</string>
+    <string name="title_activity_team_stands">TeamStandsActivity</string>
 
 </resources>

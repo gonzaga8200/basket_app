@@ -160,7 +160,7 @@
                 style="@style/StandingsStyle"
                 android:background="@drawable/failed"
                 android:id="@+id/scored_three_failed"
-                android:text="@string/one_points_failed"
+                android:text="@string/three_points_failed"
                 />
             </LinearLayout>
         <LinearLayout
@@ -202,7 +202,8 @@
         style="@style/ButtonStandingStyle"/>
     <Button
         android:id="@+id/buttonTeamStanding"
-        style="@style/ButtonStandingStyle"/>
+        style="@style/ButtonStandingStyle"
+        android:text="@string/team_standings"/>
 
 </LinearLayout>
 

@@ -34,7 +34,7 @@ public class GameActivity extends ActionBarActivity  {
     TextView [] players = new TextView[5];
     TextView [] playersScorer = new TextView[5];
     int draggable;
-    Button buttonStanding;
+    Button buttonStanding, buttonTeamStanding;
 
 
 
@@ -173,6 +173,17 @@ public class GameActivity extends ActionBarActivity  {
                 startActivity(i);
             }
         });
+        buttonTeamStanding = (Button) findViewById(R.id.buttonTeamStanding);
+        buttonTeamStanding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getBaseContext(),TeamStandsActivity.class);
+                i.putExtra("team",myTeam);
+                finish();
+                startActivity(i);
+            }
+        });
+
 
 
 

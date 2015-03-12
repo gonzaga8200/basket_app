@@ -106,7 +106,7 @@ public class Team implements Parcelable {
         int scoredOne = 0;
         while (playerIterator.hasNext()){
             Player aux = playerIterator.next();
-            scoredOne+=aux.getTotal3Scored();
+            scoredOne+=aux.getTotal1Scored();
         }
         return scoredOne;
     }
@@ -146,6 +146,15 @@ public class Team implements Parcelable {
         }
         return assistance;
     }
+    public int getTotalFouls(){
+        Iterator<Player> playerIterator = this.roster.iterator();
+        int fouls = 0;
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            fouls+=aux.getAssistance();
+        }
+        return fouls;
+    }
     public String getPercentage2 (){
         String scoredResult = Integer.toString(this.getTotal2PointsScored());
         String totalResult = Integer.toString(this.getTotal2PointsThrows());
@@ -176,7 +185,7 @@ public class Team implements Parcelable {
     public String getPercentageSymbol1 (){
         DecimalFormat numberFormat = new DecimalFormat("#.00");
         if (this.getTotal1PointsThrows()!=0)
-            return numberFormat.format(((double)this.getTotal1PointsScored()/(double)this.getTotal2PointsThrows())*100) +'%';
+            return numberFormat.format(((double)this.getTotal1PointsScored()/(double)this.getTotal1PointsThrows())*100) +'%';
         else return "0%";
     }
 

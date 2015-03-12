@@ -1,0 +1,110 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.sports.gonzalomoreno.basketstandings.TeamStandsActivity">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp">
+        <TableRow android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Puntos"
+                style="@style/infoPlayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom" />
+            <TextView
+                android:text="0" android:id="@+id/ptsJugador" style="@style/infoPlayer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </TableRow>
+        <TableRow android:layout_gravity="center_horizontal">
+            <TextView
+                android:text="2 pt" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0/0" android:id="@+id/twoPointsJugador"
+                style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow android:layout_gravity="center_horizontal">
+            <TextView
+                android:text="2 pt %" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0%" android:id="@+id/twoPointsPercentageJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow android:layout_gravity="center_horizontal">
+            <TextView
+                android:text="3 pt" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0/0" android:id="@+id/threePointsJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow android:layout_gravity="center_horizontal">
+            <TextView
+                android:text="3 pt %" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0%" android:id="@+id/threePointsPercentageJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow android:layout_gravity="center_horizontal">
+            <TextView
+                android:text="1 pt" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0/0" android:id="@+id/onePointsJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow android:layout_gravity="center_horizontal">
+            <TextView
+                android:text="1 pt %" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0%" android:id="@+id/onePointsPercentageJugador" style="@style/infoPlayer"/>
+        </TableRow >
+        <TableRow android:layout_gravity="center_horizontal">
+            <TextView
+                android:text="Off. Rebounds" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0" android:id="@+id/offReboundsJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow android:layout_gravity="center_horizontal">
+            <TextView
+                android:text="Def. Rebounds" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0" android:id="@+id/defReboundsJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow android:layout_gravity="center_horizontal">
+            <TextView
+                android:text="Total Rebounds" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0" android:id="@+id/totalReboundsJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow android:layout_gravity="center_horizontal">
+            <TextView
+                android:text="Assistance" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0" android:id="@+id/assistanceJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow android:layout_gravity="center_horizontal">
+            <TextView
+                android:text="Fouls" style="@style/infoPlayer"/>
+            <TextView
+                android:text="0" android:id="@+id/foulsJugador" style="@style/infoPlayer"/>
+        </TableRow>
+        <TableRow android:layout_gravity="center_horizontal">
+            <Button
+                android:id="@+id/declineButton"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:layout_span="2"
+                android:layout_below="@+id/textDialog"
+                android:layout_toRightOf="@+id/imageDialog"
+                android:text="Cerrar"
+                />
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

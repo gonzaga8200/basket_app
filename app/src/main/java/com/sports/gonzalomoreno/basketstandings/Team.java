@@ -188,6 +188,16 @@ public class Team implements Parcelable {
             return numberFormat.format(((double)this.getTotal1PointsScored()/(double)this.getTotal1PointsThrows())*100) +'%';
         else return "0%";
     }
+    public Boolean isValidStartingLineUp (){
+        Iterator<Player> playerIterator = this.roster.iterator();
+        int numPlayers = 0;
+        while (playerIterator.hasNext()){
+            Player aux = playerIterator.next();
+            if (aux.getInitTeam()==1)
+                numPlayers++;
+        }
+        return numPlayers == 5;
+    }
 
 
 

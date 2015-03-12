@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -22,7 +23,6 @@ import java.util.Iterator;
 
 
 public class GlobalStanding extends ActionBarActivity implements View.OnClickListener {
-    ArrayList<Player> startingLineup = new ArrayList<Player>();
     TableLayout mainLinear;
 
     Team myTeam;
@@ -162,13 +162,21 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(getBaseContext(),GameActivity.class);
-        i.putExtra("team",myTeam);
-        setResult(RESULT_OK, i);
-        finish();
-        startActivity(i);
-
-
+        if (myTeam.isValidStartingLineUp()){
+            Intent i = new Intent(getBaseContext(),GameActivity.class);
+            i.putExtra("team",myTeam);
+            setResult(RESULT_OK, i);
+            finish();
+            startActivity(i);
+        }
+        else{
+            Toast.makeText(getApplicationContext(), R.string.error_number_players, Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(getBaseContext(),GlobalStanding.class);
+            i.putExtra("team",myTeam);
+            setResult(RESULT_OK, i);
+            finish();
+            startActivity(i);
+        }
         super.onBackPressed();
     }
     @Override

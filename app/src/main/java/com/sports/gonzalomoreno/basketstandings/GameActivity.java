@@ -28,7 +28,6 @@ import java.util.Iterator;
 
 
 public class GameActivity extends ActionBarActivity  {
-    ArrayList<Player> startingLineup = new ArrayList<Player>();
     Team myTeam;
     TextView scored2,scored3,scored1,scored2Failed,scored1Failed,scored3Failed,offRebounds,defRebounds,fouls,assistance;
     TextView [] players = new TextView[5];

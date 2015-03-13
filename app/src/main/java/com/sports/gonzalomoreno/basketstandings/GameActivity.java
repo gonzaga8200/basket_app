@@ -2,9 +2,6 @@ package com.sports.gonzalomoreno.basketstandings;
 
 import android.content.ClipData;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.os.Parcelable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.DragEvent;
@@ -12,18 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 
@@ -166,7 +154,7 @@ public class GameActivity extends ActionBarActivity  {
         buttonStanding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getBaseContext(),GlobalStanding.class);
+                Intent i = new Intent(getBaseContext(),PlayerStandsActivity.class);
                 i.putExtra("team",myTeam);
                 finish();
                 startActivity(i);

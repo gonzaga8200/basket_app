@@ -3,6 +3,7 @@ package com.sports.gonzalomoreno.basketstandings;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Debug;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
@@ -24,23 +25,22 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener,AdapterView.OnItemClickListener, DialogInterface.OnMultiChoiceClickListener {
 
-    EditText playerList;
+    EditText typePlayer;
     ListView listPlayer;
     Button buttonAddPlayer, buttonSend;
     LinearLayout myLinear;
-    List<String> supplierNames1 = new ArrayList<String>();
+    List<String> arrayListPlayers = new ArrayList<String>();
     Team myTeam = new Team();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        playerList = (EditText) findViewById(R.id.type_player);
+        typePlayer = (EditText) findViewById(R.id.type_player);
         listPlayer = (ListView) findViewById(R.id.player_list);
         buttonAddPlayer = (Button) findViewById(R.id.button_add);
         myLinear = (LinearLayout) findViewById(R.id.miLinear);
-        ArrayAdapter<String> adapterList2 = new ArrayAdapter<String>(this,R.layout.my_list,android.R.id.text1,supplierNames1);
+        ArrayAdapter<String> adapterList2 = new ArrayAdapter<String>(this,R.layout.my_list,android.R.id.text1, arrayListPlayers);
         listPlayer.setAdapter(adapterList2);
         listPlayer.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listPlayer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -93,9 +93,16 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.button_add:
-                if (!playerList.getText().toString().isEmpty()){
-                    supplierNames1.add(playerList.getText().toString());
-                    playerList.setText("");
+                if (!typePlayer.getText().toString().isEmpty()){
+                    if (arrayListPlayers.indexOf(typePlayer.getText().toString())==-1){
+                        arrayListPlayers.add(typePlayer.getText().toString());
+                        typePlayer.setText("");
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(),R.string.error_repeated_player, Toast.LENGTH_SHORT).show();
+                    }
+
                 }
                 else{
                     Toast.makeText(getApplicationContext(),R.string.error_blank_player, Toast.LENGTH_SHORT).show();
@@ -112,8 +119,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 }
                 else{
 
-                    String[] selItemArray = new String[supplierNames1.size()];
-                    selItemArray = supplierNames1.toArray(selItemArray);
+                    String[] selItemArray = new String[arrayListPlayers.size()];
+                    selItemArray = arrayListPlayers.toArray(selItemArray);
                     Intent i = new Intent(getBaseContext(),GameActivity.class);
                     i.putExtra("player_list",selItemArray);
 

@@ -10,6 +10,7 @@
     <string name="title_activity_game">GameActivity</string>
     <string name="error_blank_player">Debes introducir el nombre del jugador</string>
     <string name="error_number_players">Debes seleccionar 5 Jugadores</string>
+    <string name="error_repeated_player">El jugador ya está incluido</string>
     <string name="one_points">1p V</string>
     <string name="two_points">2p V</string>
     <string name="three_points">3p V</string>
@@ -20,7 +21,7 @@
     <string name="defensive_rebounds">Def. Reb</string>
     <string name="fouls">Fouls</string>
     <string name="assistance">Assis.</string>
-    <string name="player_standings">Playes Stands</string>
+    <string name="player_standings">Players Stands</string>
     <string name="team_standings">Team Stands</string>
 
     <color name="bck_players">#2E2EFE</color>

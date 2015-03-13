@@ -16,21 +16,19 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.Iterator;
 
 
-public class GlobalStanding extends ActionBarActivity implements View.OnClickListener {
+public class PlayerStandsActivity extends ActionBarActivity implements View.OnClickListener {
     TableLayout mainLinear;
+    Button closeButton;
 
     Team myTeam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_global_standing);
+        setContentView(R.layout.activity_player_stands);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -63,7 +61,7 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
                     @Override
                     public void onClick(View v) {
                         // Create custom dialog object
-                        final Dialog dialog = new Dialog(GlobalStanding.this);
+                        final Dialog dialog = new Dialog(PlayerStandsActivity.this);
                         // Include dialog.xml file
                         dialog.setContentView(R.layout.dialog);
                         // Set dialog title
@@ -155,6 +153,22 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
 
             }
         }
+        closeButton = (Button) findViewById(R.id.buttonClose);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (myTeam.isValidStartingLineUp()){
+                    Intent i = new Intent(getBaseContext(),GameActivity.class);
+                    i.putExtra("team",myTeam);
+                    setResult(RESULT_OK, i);
+                    finish();
+                    startActivity(i);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), R.string.error_number_players, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
 
@@ -171,18 +185,19 @@ public class GlobalStanding extends ActionBarActivity implements View.OnClickLis
         }
         else{
             Toast.makeText(getApplicationContext(), R.string.error_number_players, Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(getBaseContext(),GlobalStanding.class);
+            Intent i = new Intent(getBaseContext(),PlayerStandsActivity.class);
             i.putExtra("team",myTeam);
             setResult(RESULT_OK, i);
             finish();
             startActivity(i);
+            moveTaskToBack(true);
         }
         super.onBackPressed();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_global_standing, menu);
+        getMenuInflater().inflate(R.menu.menu_player_stands, menu);
         return true;
     }
 

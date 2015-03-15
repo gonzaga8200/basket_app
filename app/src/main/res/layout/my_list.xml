@@ -20,7 +20,7 @@
     android:layout_height="wrap_content"
     android:minHeight="?android:attr/listPreferredItemHeight"
     android:textAppearance="?android:attr/textAppearanceLarge"
-    android:textColor="@android:color/white"
+    android:textColor="@android:color/black"
     android:gravity="center_vertical"
     android:paddingLeft="9dip"
     android:paddingRight="5dip"

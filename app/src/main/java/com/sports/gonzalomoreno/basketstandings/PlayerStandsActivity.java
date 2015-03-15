@@ -1,6 +1,8 @@
 package com.sports.gonzalomoreno.basketstandings;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
@@ -165,13 +167,26 @@ public class PlayerStandsActivity extends ActionBarActivity implements View.OnCl
                     startActivity(i);
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), R.string.error_number_players, Toast.LENGTH_SHORT).show();
+                    errorNumberPlayers();
                 }
             }
         });
 
 
 
+    }
+    private void errorNumberPlayers() {
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(
+                PlayerStandsActivity.this);
+
+
+
+        alertDialog.setNegativeButton("Cerrar", null);
+
+        alertDialog.setMessage(R.string.error_number_players);
+        alertDialog.setTitle("Error Jugadores");
+        alertDialog.show();
     }
 
     @Override
@@ -184,15 +199,9 @@ public class PlayerStandsActivity extends ActionBarActivity implements View.OnCl
             startActivity(i);
         }
         else{
-            Toast.makeText(getApplicationContext(), R.string.error_number_players, Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(getBaseContext(),PlayerStandsActivity.class);
-            i.putExtra("team",myTeam);
-            setResult(RESULT_OK, i);
-            finish();
-            startActivity(i);
-            moveTaskToBack(true);
+            this.errorNumberPlayers();
         }
-        super.onBackPressed();
+        //super.onBackPressed();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

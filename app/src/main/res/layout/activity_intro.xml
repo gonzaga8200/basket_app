@@ -11,8 +11,9 @@
     <TextView android:text="Basket Standings" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30dp"
-        android:textColor="@color/white"
-        android:fontFamily="sans-serif"
+        android:textColor="#FF0000"
+        android:fontFamily="Verdana"
+
        />
 
 </RelativeLayout>

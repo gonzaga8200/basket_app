@@ -1,5 +1,6 @@
 package com.sports.gonzalomoreno.basketstandings;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -31,6 +32,19 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     LinearLayout myLinear;
     List<String> arrayListPlayers = new ArrayList<String>();
     Team myTeam = new Team();
+    private void errorNumberPlayers() {
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(
+                MainActivity.this);
+
+
+
+        alertDialog.setNegativeButton("Cerrar", null);
+
+        alertDialog.setMessage(R.string.error_number_players);
+        alertDialog.setTitle("Error Jugadores");
+        alertDialog.show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,7 +129,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 SparseBooleanArray checked = listPlayer.getCheckedItemPositions();
 
                 if (listPlayer.getCheckedItemCount()!=5){
-                    Toast.makeText(getApplicationContext(),R.string.error_number_players, Toast.LENGTH_SHORT).show();
+                    this.errorNumberPlayers();
                 }
                 else{
 

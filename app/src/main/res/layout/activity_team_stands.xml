@@ -7,19 +7,18 @@
     tools:context="com.sports.gonzalomoreno.basketstandings.TeamStandsActivity">
 
     <TableLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="50dp">
+        >
         <TableRow android:layout_gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
                 android:text="Puntos"
                 style="@style/infoPlayer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom" />
+
+                 />
             <TextView
                 android:text="0" android:id="@+id/ptsJugador" style="@style/infoPlayer"
                 android:layout_width="match_parent"

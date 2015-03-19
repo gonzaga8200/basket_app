@@ -57,7 +57,7 @@
         android:id="@+id/buttonClose"
         android:layout_below="@+id/mainTable"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="107dp"
+        android:layout_marginTop="2dp"
         android:singleLine="false" />
 
 

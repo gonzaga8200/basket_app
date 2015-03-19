@@ -10,6 +10,7 @@
     <string name="title_activity_game">GameActivity</string>
     <string name="error_blank_player">Debes introducir el nombre del jugador</string>
     <string name="error_number_players">Debes seleccionar 5 Jugadores</string>
+    <string name="error_max_players">Número máximo de jugadores</string>
     <string name="error_repeated_player">El jugador ya está incluido</string>
     <string name="one_points">1p V</string>
     <string name="two_points">2p V</string>

@@ -109,8 +109,15 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             case R.id.button_add:
                 if (!typePlayer.getText().toString().isEmpty()){
                     if (arrayListPlayers.indexOf(typePlayer.getText().toString())==-1){
-                        arrayListPlayers.add(typePlayer.getText().toString());
-                        typePlayer.setText("");
+                        if (arrayListPlayers.size() < 12){
+                            arrayListPlayers.add(typePlayer.getText().toString());
+                            typePlayer.setText("");
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(),R.string.error_max_players, Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                     else
                     {

@@ -2,16 +2,15 @@
 <resources>
 
     <string name="app_name">BasketStandings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="hint_type_player">Introduce un jugador</string>
-    <string name="text_button_add">Añadir</string>
-    <string name="text_button_send">Enviar</string>
+    <string name="hint_type_player">Type player name</string>
+    <string name="text_button_add">Add Player</string>
+    <string name="text_button_send">Send List</string>
     <string name="title_activity_game">GameActivity</string>
-    <string name="error_blank_player">Debes introducir el nombre del jugador</string>
-    <string name="error_number_players">Debes seleccionar 5 Jugadores</string>
-    <string name="error_max_players">Número máximo de jugadores</string>
-    <string name="error_repeated_player">El jugador ya está incluido</string>
+    <string name="error_blank_player">Blank Player is not allowed</string>
+    <string name="error_number_players">You must select 5 players</string>
+    <string name="error_max_players">Typed players have reached the maximum number</string>
+    <string name="error_repeated_player">This player is already included</string>
     <string name="one_points">1p V</string>
     <string name="two_points">2p V</string>
     <string name="three_points">3p V</string>

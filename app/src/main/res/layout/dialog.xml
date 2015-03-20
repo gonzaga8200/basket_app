@@ -29,7 +29,7 @@
         android:layout_marginLeft="50dp">
         <TableRow>
             <TextView
-                android:text="Puntos"
+                android:text="Points"
                 style="@style/infoPlayer"/>
             <TextView
                 android:text="0" android:id="@+id/ptsJugador" style="@style/infoPlayer"/>

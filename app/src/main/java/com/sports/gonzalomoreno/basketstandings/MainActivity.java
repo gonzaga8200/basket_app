@@ -81,12 +81,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -109,7 +109,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             case R.id.button_add:
                 if (!typePlayer.getText().toString().isEmpty()){
                     if (arrayListPlayers.indexOf(typePlayer.getText().toString())==-1){
-                        if (arrayListPlayers.size() < 12){
+                        if (arrayListPlayers.size() < 10){
                             arrayListPlayers.add(typePlayer.getText().toString());
                             typePlayer.setText("");
                         }

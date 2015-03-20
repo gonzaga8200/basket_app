@@ -25,6 +25,6 @@
     android:paddingLeft="9dip"
     android:paddingRight="5dip"
     android:textSize="16dp"
-    android:checkMark="@android:drawable/btn_star"
+    android:checkMark="@android:drawable/btn_radio"
     android:ellipsize="marquee"
     />

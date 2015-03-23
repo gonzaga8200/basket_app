@@ -37,6 +37,10 @@
             android:label="@string/title_activity_team_stands"
             android:screenOrientation="portrait">
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="6c596852a69ba3dbd914d4cf95e7c960722d2301" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

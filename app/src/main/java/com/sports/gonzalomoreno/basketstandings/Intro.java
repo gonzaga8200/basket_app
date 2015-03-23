@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.os.Handler;
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 
 
 public class Intro extends ActionBarActivity {
@@ -16,6 +18,7 @@ public class Intro extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_intro);
 
         new Handler().postDelayed(new Runnable() {
@@ -36,5 +39,7 @@ public class Intro extends ActionBarActivity {
                 finish();
             }
         }, SPLASH_TIME_OUT);
+
+        throw new RuntimeException("This is a crash");
     }
 }

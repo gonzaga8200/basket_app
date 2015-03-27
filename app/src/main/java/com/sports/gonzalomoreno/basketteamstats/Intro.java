@@ -1,12 +1,11 @@
-package com.sports.gonzalomoreno.basketstandings;
+package com.sports.gonzalomoreno.basketteamstats;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.os.Handler;
 import com.crashlytics.android.Crashlytics;
+
 import io.fabric.sdk.android.Fabric;
 
 
@@ -40,6 +39,6 @@ public class Intro extends ActionBarActivity {
             }
         }, SPLASH_TIME_OUT);
 
-        throw new RuntimeException("This is a crash");
+
     }
 }

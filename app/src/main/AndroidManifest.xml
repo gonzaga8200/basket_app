@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sports.gonzalomoreno.basketstandings" >
+    package="com.sports.gonzalomoreno.basketteamstats" >
 
     <application
         android:allowBackup="true"
@@ -8,18 +8,18 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         <activity
-            android:name=".MainActivity"
+            android:name="com.sports.gonzalomoreno.basketteamstats.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".GameActivity"
+            android:name="com.sports.gonzalomoreno.basketteamstats.GameActivity"
             android:label="@string/title_activity_game"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Intro"
-            android:label="Basket Standings"
+            android:name="com.sports.gonzalomoreno.basketteamstats.Intro"
+            android:label="Basket Team Stats"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,12 +28,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PlayerStandsActivity"
+            android:name="com.sports.gonzalomoreno.basketteamstats.PlayerStandsActivity"
             android:label="@string/title_activity_global_standing"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".TeamStandsActivity"
+            android:name="com.sports.gonzalomoreno.basketteamstats.TeamStandsActivity"
             android:label="@string/title_activity_team_stands"
             android:screenOrientation="portrait">
         </activity>

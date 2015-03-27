@@ -3,6 +3,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/intro"
     android:gravity="center"
-    tools:context="com.sports.gonzalomoreno.basketstandings.Intro">
+    tools:context="com.sports.gonzalomoreno.basketteamstats.Intro">
 
 </LinearLayout>

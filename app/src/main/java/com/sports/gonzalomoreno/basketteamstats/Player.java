@@ -1,4 +1,4 @@
-package com.sports.gonzalomoreno.basketstandings;
+package com.sports.gonzalomoreno.basketteamstats;
 
 import android.os.Parcel;
 import android.os.Parcelable;

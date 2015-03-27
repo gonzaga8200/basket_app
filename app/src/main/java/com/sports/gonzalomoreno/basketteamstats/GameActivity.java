@@ -1,11 +1,10 @@
-package com.sports.gonzalomoreno.basketstandings;
+package com.sports.gonzalomoreno.basketteamstats;
 
 import android.content.ClipData;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.DragEvent;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;

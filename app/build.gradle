@@ -20,7 +20,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.sports.gonzalomoreno.basketstandings"
+        applicationId "com.sports.gonzalomoreno.basketteamstats"
         minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
